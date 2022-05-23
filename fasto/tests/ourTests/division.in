@@ -1,0 +1,5 @@
+fun int main() =
+  let res = write(4/2) in
+  let res = write(9/~3) in
+  let res = write(~5/~5) in
+  write(~16/4)

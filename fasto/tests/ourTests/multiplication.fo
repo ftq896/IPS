@@ -1,0 +1,5 @@
+fun int main() =
+  let res = write(2*3) in
+  let res = write(6*~3) in
+  let res = write(~5*~5) in
+  write(~4*4)

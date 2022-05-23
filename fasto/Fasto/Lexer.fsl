@@ -63,6 +63,9 @@ let keyword (s, pos) =
        | "fun"          -> Parser.FUN pos
        | "fn"           -> Parser.FN pos
        | "op"           -> Parser.OP pos
+       | "true"         -> Parser.BOOLVAL (true,  pos)
+       | "false"        -> Parser.BOOLVAL (false, pos)
+       | "not"          -> Parser.NOT pos
 
 (* specials: *)
        | "iota"         -> Parser.IOTA pos
@@ -101,6 +104,11 @@ rule Token = parse
                             let str1 = str0.Substring (1, (String.length str0) - 2)
                             Parser.STRINGLIT (AbSyn.fromCString str1, getPos lexbuf)
                           }
+  | '*'                   { Parser.TIMES  (getPos lexbuf) }
+  | '/'                   { Parser.DIVIDE (getPos lexbuf) }
+  | "&&"                  { Parser.AND    (getPos lexbuf) }
+  | "||"                  { Parser.OR     (getPos lexbuf) }
+  | '~'                   { Parser.NEG    (getPos lexbuf) }
   | '+'                   { Parser.PLUS   (getPos lexbuf) }
   | '-'                   { Parser.MINUS  (getPos lexbuf) }
   | "=>"                  { Parser.ARROW  (getPos lexbuf) }

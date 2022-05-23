@@ -1,0 +1,1 @@
+Bad type for right operand of /: expected int, but got bool (true) at line 2, column 7

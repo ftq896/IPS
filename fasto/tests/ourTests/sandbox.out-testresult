@@ -1,0 +1,12 @@
+Unhandled exception. System.Exception: Unimplemented type check of &&
+   at TypeChecker.checkExp(SymTab`1 ftab, SymTab`1 vtab, Exp`1 exp) in C:\Users\Gabriel\Desktop\kode\fasto\fasto\TypeChecker.fs:line 139
+   at TypeChecker.checkExp(SymTab`1 ftab, SymTab`1 vtab, Exp`1 exp) in C:\Users\Gabriel\Desktop\kode\fasto\fasto\TypeChecker.fs:line 224
+   at TypeChecker.checkExp(SymTab`1 ftab, SymTab`1 vtab, Exp`1 exp) in C:\Users\Gabriel\Desktop\kode\fasto\fasto\TypeChecker.fs:line 213
+   at TypeChecker.checkFunWithVtable(SymTab`1 ftab, SymTab`1 vtab, Int32 pos_0, Int32 pos_1, FunDec`1 fdec) in C:\Users\Gabriel\Desktop\kode\fasto\fasto\TypeChecker.fs:line 356
+   at TypeChecker.checkFun(SymTab`1 ftab, FunDec`1 fundec) in C:\Users\Gabriel\Desktop\kode\fasto\fasto\TypeChecker.fs:line 382
+   at TypeChecker.decorated_funDecs@386.Invoke(FunDec`1 fundec) in C:\Users\Gabriel\Desktop\kode\fasto\fasto\TypeChecker.fs:line 386
+   at Microsoft.FSharp.Primitives.Basics.List.map[T,TResult](FSharpFunc`2 mapping, FSharpList`1 x) in D:\a\_work\1\s\src\fsharp\FSharp.Core\local.fs:line 244
+   at Microsoft.FSharp.Collections.ListModule.Map[T,TResult](FSharpFunc`2 mapping, FSharpList`1 list) in D:\a\_work\1\s\src\fsharp\FSharp.Core\list.fs:line 74
+   at TypeChecker.checkProg(FSharpList`1 funDecs) in C:\Users\Gabriel\Desktop\kode\fasto\fasto\TypeChecker.fs:line 386
+   at Fasto.compile(String filename, FSharpFunc`2 optimiser) in C:\Users\Gabriel\Desktop\kode\fasto\fasto\Fasto.fsx:line 151
+   at Fasto.main(String[] paramList) in C:\Users\Gabriel\Desktop\kode\fasto\fasto\Fasto.fsx:line 212
