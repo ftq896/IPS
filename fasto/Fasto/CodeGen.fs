@@ -193,9 +193,13 @@ let rec compileExp  (e      : TypedExp)
       else
         [ Mips.LUI (place, n / 65536)
         ; Mips.ORI (place, place, n % 65536) ]
-  | Constant (BoolVal p, _) ->
+  | Constant (BoolVal p, pos) ->
       (* TODO project task 1: represent `true`/`false` values as `1`/`0` *)
-      failwith "Unimplemented code generation of boolean constants"
+      if p = true then
+        [ Mips.LI (place, 1) ]
+      else
+        [ Mips.LI (place, 0) ]
+
   | Constant (CharVal c, pos) -> [ Mips.LI (place, int c) ]
 
   (* Create/return a label here, collect all string literals of the program
@@ -263,17 +267,29 @@ let rec compileExp  (e      : TypedExp)
      version, but remember to come back and clean it up later.
      `Not` and `Negate` are simpler; you can use `Mips.XORI` for `Not`
   *)
-  | Times (_, _, _) ->
-      failwith "Unimplemented code generation of multiplication"
+  | Times (e1, e2, pos) ->
+      let t1 = newReg "times_L"
+      let t2 = newReg "times_R"
+      let code1 = compileExp e1 vtable t1
+      let code2 = compileExp e2 vtable t2
+      code1 @ code2 @ [Mips.MUL (place,t1,t2)]
 
-  | Divide (_, _, _) ->
-      failwith "Unimplemented code generation of division"
+  | Divide (e1, e2, pos) ->
+      let t1 = newReg "divide_L"
+      let t2 = newReg "divide_R"
+      let code1 = compileExp e1 vtable t1
+      let code2 = compileExp e2 vtable t2
+      code1 @ code2 @ [Mips.DIV (place,t1,t2)]
 
-  | Not (_, _) ->
-      failwith "Unimplemented code generation of not"
+  | Not (e, pos) ->
+      let t = newReg "not_e"
+      let code = compileExp e vtable t
+      code @ [ Mips.XORI (place,t,1) ]
 
-  | Negate (_, _) ->
-      failwith "Unimplemented code generation of negate"
+  | Negate (e, pos) ->
+      let t = newReg "not_e"
+      let code = compileExp e vtable t
+      code @ [ Mips.SUB (place,RZ,t) ]
 
   | Let (dec, e1, pos) ->
       let (code1, vtable1) = compileDec dec vtable
@@ -389,11 +405,37 @@ let rec compileExp  (e      : TypedExp)
         in `e1 || e2` if the execution of `e1` will evaluate to `true` then
         the code of `e2` must not be executed. Similarly for `And` (&&).
   *)
-  | And (_, _, _) ->
-      failwith "Unimplemented code generation of &&"
+  | And (e1, e2, pos) ->
+      let t1 = newReg "and_L"
+      let t2 = newReg "and_R"
+      let code1 = compileExp e1 vtable t1
+      let code2 = compileExp e2 vtable t2
+      let sc_lab = newLab "and_sc"
+      let no_sc_lab = newLab "and_no_sc"
+      code1 @ 
+      [ Mips.BEQ (t1, RZ, sc_lab)] 
+      @ code2 @ 
+      [ Mips.MOVE (place, t2)
+      ; Mips.J (no_sc_lab)
+      ; Mips.LABEL (sc_lab)
+      ; Mips.MOVE (place, t1)  
+      ; Mips.LABEL (no_sc_lab) ]
 
-  | Or (_, _, _) ->
-      failwith "Unimplemented code generation of ||"
+  | Or (e1, e2, pos) ->
+      let t1 = newReg "or_L"
+      let t2 = newReg "or_R"
+      let code1 = compileExp e1 vtable t1
+      let code2 = compileExp e2 vtable t2
+      let sc_lab = newLab "or_sc"
+      let no_sc_lab = newLab "or_no_sc"
+      code1 @ 
+      [ Mips.BNE (t1, RZ, sc_lab)] 
+      @ code2 @ 
+      [ Mips.MOVE (place, t2)
+      ; Mips.J (no_sc_lab)
+      ; Mips.LABEL (sc_lab)
+      ; Mips.MOVE (place, t1)  
+      ; Mips.LABEL (no_sc_lab) ]
 
   (* Indexing:
      1. generate code to compute the index
