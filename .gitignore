@@ -2,3 +2,4 @@
 fasto/Fasto/bin/
 fasto/Fasto/obj/
 fasto/tests/ourTests/sandbox.*
+**/*.asm
