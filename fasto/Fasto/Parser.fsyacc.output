@@ -602,15 +602,15 @@ state 10:  items:    Fun -> Type 'ID' 'LPAR' Params . 'RPAR' 'EQ' Exp
     action '#' (noprec):   error
     action '$$' (noprec):   error
   immediate action: <none>  gotos:state 12:  items:    Fun -> Type 'ID' 'LPAR' Params 'RPAR' 'EQ' . Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -661,10 +661,10 @@ state 13:  items:    Fun -> Type 'ID' 'LPAR' Params 'RPAR' 'EQ' Exp .
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (noprec):   reduce Fun --> Type 'ID' 'LPAR' Params 'RPAR' 'EQ' Exp
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
     action 'NEG' (noprec):   reduce Fun --> Type 'ID' 'LPAR' Params 'RPAR' 'EQ' Exp
     action 'TRUE' (noprec):   reduce Fun --> Type 'ID' 'LPAR' Params 'RPAR' 'EQ' Exp
     action 'FALSE' (noprec):   reduce Fun --> Type 'ID' 'LPAR' Params 'RPAR' 'EQ' Exp
@@ -758,15 +758,15 @@ state 13:  items:    Fun -> Type 'ID' 'LPAR' Params 'RPAR' 'EQ' Exp .
     action '#' (noprec):   error
     action '$$' (noprec):   error
   immediate action: <none>  gotos:state 15:  items:    Fun -> Type 'ID' 'LPAR' 'RPAR' 'EQ' . Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -817,10 +817,10 @@ state 16:  items:    Fun -> Type 'ID' 'LPAR' 'RPAR' 'EQ' Exp .
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (noprec):   reduce Fun --> Type 'ID' 'LPAR' 'RPAR' 'EQ' Exp
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
     action 'NEG' (noprec):   reduce Fun --> Type 'ID' 'LPAR' 'RPAR' 'EQ' Exp
     action 'TRUE' (noprec):   reduce Fun --> Type 'ID' 'LPAR' 'RPAR' 'EQ' Exp
     action 'FALSE' (noprec):   reduce Fun --> Type 'ID' 'LPAR' 'RPAR' 'EQ' Exp
@@ -1521,7 +1521,7 @@ state 26:  items:    Params -> Type 'ID' 'COMMA' Params .
     action 'NOT' (noprec):   reduce Exp --> 'ID'
     action 'LPAR' (noprec):   shift 69
     action 'RPAR' (noprec):   reduce Exp --> 'ID'
-    action 'LBRACKET' (noprec):   shift 105
+    action 'LBRACKET' (noprec):   shift 103
     action 'RBRACKET' (noprec):   reduce Exp --> 'ID'
     action 'LCURLY' (noprec):   reduce Exp --> 'ID'
     action 'RCURLY' (noprec):   reduce Exp --> 'ID'
@@ -1608,15 +1608,15 @@ state 26:  items:    Params -> Type 'ID' 'COMMA' Params .
     action '#' (noprec):   reduce Exp --> 'STRINGLIT'
     action '$$' (noprec):   reduce Exp --> 'STRINGLIT'
   immediate action:   reduce Exp --> 'STRINGLIT'  gotos:state 32:  items:    Exp -> 'LCURLY' . Exps 'RCURLY'
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -1656,7 +1656,7 @@ state 26:  items:    Params -> Type 'ID' 'COMMA' Params .
     action 'error' (noprec):   error
     action '#' (noprec):   error
     action '$$' (noprec):   error
-  immediate action: <none>  gotos:    goto Exp: 59
+  immediate action: <none>  gotos:    goto Exp: 57
     goto Exps: 33
 state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
   actions:    action 'BOOLVAL' (noprec):   error
@@ -1766,8 +1766,8 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (explicit left 9997):   reduce Exp --> Exp 'PLUS' Exp
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
     action 'AND' (explicit left 9997):   reduce Exp --> Exp 'PLUS' Exp
     action 'OR' (explicit left 9997):   reduce Exp --> Exp 'PLUS' Exp
     action 'NEG' (explicit left 9997):   reduce Exp --> Exp 'PLUS' Exp
@@ -1823,8 +1823,8 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (explicit left 9997):   reduce Exp --> Exp 'MINUS' Exp
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
     action 'AND' (explicit left 9997):   reduce Exp --> Exp 'MINUS' Exp
     action 'OR' (explicit left 9997):   reduce Exp --> Exp 'MINUS' Exp
     action 'NEG' (explicit left 9997):   reduce Exp --> Exp 'MINUS' Exp
@@ -1880,8 +1880,8 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (explicit left 9996):   reduce Exp --> Exp 'DEQ' Exp
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
     action 'AND' (explicit left 9996):   reduce Exp --> Exp 'DEQ' Exp
     action 'OR' (explicit left 9996):   reduce Exp --> Exp 'DEQ' Exp
     action 'NEG' (explicit left 9996):   reduce Exp --> Exp 'DEQ' Exp
@@ -1937,8 +1937,8 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (explicit left 9996):   reduce Exp --> Exp 'LTH' Exp
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
     action 'AND' (explicit left 9996):   reduce Exp --> Exp 'LTH' Exp
     action 'OR' (explicit left 9996):   reduce Exp --> Exp 'LTH' Exp
     action 'NEG' (explicit left 9996):   reduce Exp --> Exp 'LTH' Exp
@@ -1994,10 +1994,10 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (noprec):   error
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
     action 'NEG' (noprec):   error
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
@@ -2051,10 +2051,10 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (noprec):   error
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
     action 'NEG' (noprec):   error
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
@@ -2108,10 +2108,10 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (explicit nonassoc 9992):   reduce Exp --> 'IF' Exp 'THEN' Exp 'ELSE' Exp
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
     action 'NEG' (explicit nonassoc 9992):   reduce Exp --> 'IF' Exp 'THEN' Exp 'ELSE' Exp
     action 'TRUE' (explicit nonassoc 9992):   reduce Exp --> 'IF' Exp 'THEN' Exp 'ELSE' Exp
     action 'FALSE' (explicit nonassoc 9992):   reduce Exp --> 'IF' Exp 'THEN' Exp 'ELSE' Exp
@@ -2165,10 +2165,10 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (noprec):   error
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
     action 'NEG' (noprec):   error
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
@@ -2222,10 +2222,10 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (noprec):   error
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
     action 'NEG' (noprec):   error
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
@@ -2279,10 +2279,10 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (noprec):   error
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
     action 'NEG' (noprec):   error
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
@@ -2336,10 +2336,10 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (noprec):   error
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
     action 'NEG' (noprec):   error
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
@@ -2393,10 +2393,10 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (noprec):   error
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
     action 'NEG' (noprec):   error
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
@@ -2450,10 +2450,10 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (noprec):   error
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
     action 'NEG' (noprec):   error
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
@@ -2507,10 +2507,10 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (noprec):   error
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
     action 'NEG' (noprec):   error
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
@@ -2564,10 +2564,10 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (noprec):   error
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
     action 'NEG' (noprec):   error
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
@@ -2615,130 +2615,16 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'MINUS' Exp
     Exp -> Exp . 'DEQ' Exp
     Exp -> Exp . 'LTH' Exp
-    Exp -> 'LET' 'ID' 'EQ' Exp . 'IN' Exp
-    Exp -> Exp . 'TIMES' Exp
-    Exp -> Exp . 'DIVIDE' Exp
-    Exp -> Exp . 'AND' Exp
-    Exp -> Exp . 'OR' Exp
-  actions:    action 'BOOLVAL' (noprec):   error
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
-    action 'NEG' (noprec):   error
-    action 'TRUE' (noprec):   error
-    action 'FALSE' (noprec):   error
-    action 'NOT' (noprec):   error
-    action 'LPAR' (noprec):   error
-    action 'RPAR' (noprec):   error
-    action 'LBRACKET' (noprec):   error
-    action 'RBRACKET' (noprec):   error
-    action 'LCURLY' (noprec):   error
-    action 'RCURLY' (noprec):   error
-    action 'FUN' (noprec):   error
-    action 'FN' (noprec):   error
-    action 'COMMA' (noprec):   error
-    action 'SEMICOLON' (noprec):   error
-    action 'READ' (noprec):   error
-    action 'WRITE' (noprec):   error
-    action 'DEQ' (explicit left 9996):   shift 64
-    action 'LTH' (explicit left 9996):   shift 65
-    action 'EQ' (noprec):   error
-    action 'OP' (noprec):   error
-    action 'MAP' (noprec):   error
-    action 'REDUCE' (noprec):   error
-    action 'IOTA' (noprec):   error
-    action 'ARROW' (noprec):   error
-    action 'PLUS' (explicit left 9997):   shift 62
-    action 'MINUS' (explicit left 9997):   shift 63
-    action 'LESS' (noprec):   error
-    action 'INT' (noprec):   error
-    action 'CHAR' (noprec):   error
-    action 'BOOL' (noprec):   error
-    action 'IF' (noprec):   error
-    action 'THEN' (noprec):   error
-    action 'ELSE' (noprec):   error
-    action 'LET' (noprec):   error
-    action 'IN' (noprec):   shift 104
-    action 'EOF' (noprec):   error
-    action 'ID' (noprec):   error
-    action 'STRINGLIT' (noprec):   error
-    action 'CHARLIT' (noprec):   error
-    action 'NUM' (noprec):   error
-    action 'error' (noprec):   error
-    action '#' (noprec):   error
-    action '$$' (noprec):   error
-  immediate action: <none>  gotos:state 51:  items:    Exp -> Exp . 'PLUS' Exp
-    Exp -> Exp . 'MINUS' Exp
-    Exp -> Exp . 'DEQ' Exp
-    Exp -> Exp . 'LTH' Exp
-    Exp -> 'LET' 'ID' 'EQ' Exp 'IN' Exp . 
-    Exp -> Exp . 'TIMES' Exp
-    Exp -> Exp . 'DIVIDE' Exp
-    Exp -> Exp . 'AND' Exp
-    Exp -> Exp . 'OR' Exp
-  actions:    action 'BOOLVAL' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
-    action 'NEG' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'TRUE' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'FALSE' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'NOT' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'LPAR' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'RPAR' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'LBRACKET' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'RBRACKET' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'LCURLY' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'RCURLY' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'FUN' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'FN' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'COMMA' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'SEMICOLON' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'READ' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'WRITE' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'DEQ' (explicit left 9996):   shift 64
-    action 'LTH' (explicit left 9996):   shift 65
-    action 'EQ' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'OP' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'MAP' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'REDUCE' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'IOTA' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'ARROW' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'PLUS' (explicit left 9997):   shift 62
-    action 'MINUS' (explicit left 9997):   shift 63
-    action 'LESS' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'INT' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'CHAR' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'BOOL' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'IF' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'THEN' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'ELSE' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'LET' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'IN' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'EOF' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'ID' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'STRINGLIT' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'CHARLIT' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'NUM' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action 'error' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action '#' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-    action '$$' (explicit nonassoc 9992):   reduce Exp --> 'LET' 'ID' 'EQ' Exp 'IN' Exp
-  immediate action: <none>  gotos:state 52:  items:    Exp -> Exp . 'PLUS' Exp
-    Exp -> Exp . 'MINUS' Exp
-    Exp -> Exp . 'DEQ' Exp
-    Exp -> Exp . 'LTH' Exp
     Exp -> 'ID' 'LBRACKET' Exp . 'RBRACKET'
     Exp -> Exp . 'TIMES' Exp
     Exp -> Exp . 'DIVIDE' Exp
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (noprec):   error
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
     action 'NEG' (noprec):   error
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
@@ -2746,7 +2632,7 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     action 'LPAR' (noprec):   error
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
-    action 'RBRACKET' (noprec):   shift 106
+    action 'RBRACKET' (noprec):   shift 104
     action 'LCURLY' (noprec):   error
     action 'RCURLY' (noprec):   error
     action 'FUN' (noprec):   error
@@ -2782,7 +2668,7 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     action 'error' (noprec):   error
     action '#' (noprec):   error
     action '$$' (noprec):   error
-  immediate action: <none>  gotos:state 53:  items:    Exp -> Exp . 'PLUS' Exp
+  immediate action: <none>  gotos:state 51:  items:    Exp -> Exp . 'PLUS' Exp
     Exp -> Exp . 'MINUS' Exp
     Exp -> Exp . 'DEQ' Exp
     Exp -> Exp . 'LTH' Exp
@@ -2839,7 +2725,7 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     action 'error' (explicit left 9998):   reduce Exp --> Exp 'TIMES' Exp
     action '#' (explicit left 9998):   reduce Exp --> Exp 'TIMES' Exp
     action '$$' (explicit left 9998):   reduce Exp --> Exp 'TIMES' Exp
-  immediate action: <none>  gotos:state 54:  items:    Exp -> Exp . 'PLUS' Exp
+  immediate action: <none>  gotos:state 52:  items:    Exp -> Exp . 'PLUS' Exp
     Exp -> Exp . 'MINUS' Exp
     Exp -> Exp . 'DEQ' Exp
     Exp -> Exp . 'LTH' Exp
@@ -2896,7 +2782,7 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     action 'error' (explicit left 9998):   reduce Exp --> Exp 'DIVIDE' Exp
     action '#' (explicit left 9998):   reduce Exp --> Exp 'DIVIDE' Exp
     action '$$' (explicit left 9998):   reduce Exp --> Exp 'DIVIDE' Exp
-  immediate action: <none>  gotos:state 55:  items:    Exp -> Exp . 'PLUS' Exp
+  immediate action: <none>  gotos:state 53:  items:    Exp -> Exp . 'PLUS' Exp
     Exp -> Exp . 'MINUS' Exp
     Exp -> Exp . 'DEQ' Exp
     Exp -> Exp . 'LTH' Exp
@@ -2906,8 +2792,8 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp 'AND' Exp . 
     Exp -> Exp . 'OR' Exp
   actions:    action 'BOOLVAL' (explicit left 9994):   reduce Exp --> Exp 'AND' Exp
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
     action 'AND' (explicit left 9994):   reduce Exp --> Exp 'AND' Exp
     action 'OR' (explicit left 9994):   reduce Exp --> Exp 'AND' Exp
     action 'NEG' (explicit left 9994):   reduce Exp --> Exp 'AND' Exp
@@ -2953,7 +2839,7 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     action 'error' (explicit left 9994):   reduce Exp --> Exp 'AND' Exp
     action '#' (explicit left 9994):   reduce Exp --> Exp 'AND' Exp
     action '$$' (explicit left 9994):   reduce Exp --> Exp 'AND' Exp
-  immediate action: <none>  gotos:state 56:  items:    Exp -> Exp . 'PLUS' Exp
+  immediate action: <none>  gotos:state 54:  items:    Exp -> Exp . 'PLUS' Exp
     Exp -> Exp . 'MINUS' Exp
     Exp -> Exp . 'DEQ' Exp
     Exp -> Exp . 'LTH' Exp
@@ -2963,9 +2849,9 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'OR' Exp
     Exp -> Exp 'OR' Exp . 
   actions:    action 'BOOLVAL' (explicit left 9993):   reduce Exp --> Exp 'OR' Exp
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
     action 'OR' (explicit left 9993):   reduce Exp --> Exp 'OR' Exp
     action 'NEG' (explicit left 9993):   reduce Exp --> Exp 'OR' Exp
     action 'TRUE' (explicit left 9993):   reduce Exp --> Exp 'OR' Exp
@@ -3010,7 +2896,7 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     action 'error' (explicit left 9993):   reduce Exp --> Exp 'OR' Exp
     action '#' (explicit left 9993):   reduce Exp --> Exp 'OR' Exp
     action '$$' (explicit left 9993):   reduce Exp --> Exp 'OR' Exp
-  immediate action: <none>  gotos:state 57:  items:    Exp -> Exp . 'PLUS' Exp
+  immediate action: <none>  gotos:state 55:  items:    Exp -> Exp . 'PLUS' Exp
     Exp -> Exp . 'MINUS' Exp
     Exp -> Exp . 'DEQ' Exp
     Exp -> Exp . 'LTH' Exp
@@ -3020,8 +2906,8 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'OR' Exp
     Exp -> 'NOT' Exp . 
   actions:    action 'BOOLVAL' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
     action 'AND' (explicit left 9995):   reduce Exp --> 'NOT' Exp
     action 'OR' (explicit left 9995):   reduce Exp --> 'NOT' Exp
     action 'NEG' (explicit left 9995):   reduce Exp --> 'NOT' Exp
@@ -3067,7 +2953,7 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     action 'error' (explicit left 9995):   reduce Exp --> 'NOT' Exp
     action '#' (explicit left 9995):   reduce Exp --> 'NOT' Exp
     action '$$' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-  immediate action: <none>  gotos:state 58:  items:    Exp -> Exp . 'PLUS' Exp
+  immediate action: <none>  gotos:state 56:  items:    Exp -> Exp . 'PLUS' Exp
     Exp -> Exp . 'MINUS' Exp
     Exp -> Exp . 'DEQ' Exp
     Exp -> Exp . 'LTH' Exp
@@ -3124,7 +3010,7 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     action 'error' (explicit left 9999):   reduce Exp --> 'NEG' Exp
     action '#' (explicit left 9999):   reduce Exp --> 'NEG' Exp
     action '$$' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-  immediate action: <none>  gotos:state 59:  items:    Exp -> Exp . 'PLUS' Exp
+  immediate action: <none>  gotos:state 57:  items:    Exp -> Exp . 'PLUS' Exp
     Exp -> Exp . 'MINUS' Exp
     Exp -> Exp . 'DEQ' Exp
     Exp -> Exp . 'LTH' Exp
@@ -3135,10 +3021,10 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exps -> Exp . 'COMMA' Exps
     Exps -> Exp . 
   actions:    action 'BOOLVAL' (noprec):   reduce Exps --> Exp
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
     action 'NEG' (noprec):   reduce Exps --> Exp
     action 'TRUE' (noprec):   reduce Exps --> Exp
     action 'FALSE' (noprec):   reduce Exps --> Exp
@@ -3151,7 +3037,7 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     action 'RCURLY' (noprec):   reduce Exps --> Exp
     action 'FUN' (noprec):   reduce Exps --> Exp
     action 'FN' (noprec):   reduce Exps --> Exp
-    action 'COMMA' (noprec):   shift 114
+    action 'COMMA' (noprec):   shift 112
     action 'SEMICOLON' (noprec):   reduce Exps --> Exp
     action 'READ' (noprec):   reduce Exps --> Exp
     action 'WRITE' (noprec):   reduce Exps --> Exp
@@ -3182,6 +3068,121 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     action 'error' (noprec):   reduce Exps --> Exp
     action '#' (noprec):   reduce Exps --> Exp
     action '$$' (noprec):   reduce Exps --> Exp
+  immediate action: <none>  gotos:state 58:  items:    Exp -> Exp . 'PLUS' Exp
+    Exp -> Exp . 'MINUS' Exp
+    Exp -> Exp . 'DEQ' Exp
+    Exp -> Exp . 'LTH' Exp
+    Exp -> Exp . 'TIMES' Exp
+    Exp -> Exp . 'DIVIDE' Exp
+    Exp -> Exp . 'AND' Exp
+    Exp -> Exp . 'OR' Exp
+    LetExp -> 'ID' 'EQ' Exp . 'SEMICOLON' LetExp
+    LetExp -> 'ID' 'EQ' Exp . 'IN' Exp
+  actions:    action 'BOOLVAL' (noprec):   error
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
+    action 'NEG' (noprec):   error
+    action 'TRUE' (noprec):   error
+    action 'FALSE' (noprec):   error
+    action 'NOT' (noprec):   error
+    action 'LPAR' (noprec):   error
+    action 'RPAR' (noprec):   error
+    action 'LBRACKET' (noprec):   error
+    action 'RBRACKET' (noprec):   error
+    action 'LCURLY' (noprec):   error
+    action 'RCURLY' (noprec):   error
+    action 'FUN' (noprec):   error
+    action 'FN' (noprec):   error
+    action 'COMMA' (noprec):   error
+    action 'SEMICOLON' (noprec):   shift 116
+    action 'READ' (noprec):   error
+    action 'WRITE' (noprec):   error
+    action 'DEQ' (explicit left 9996):   shift 64
+    action 'LTH' (explicit left 9996):   shift 65
+    action 'EQ' (noprec):   error
+    action 'OP' (noprec):   error
+    action 'MAP' (noprec):   error
+    action 'REDUCE' (noprec):   error
+    action 'IOTA' (noprec):   error
+    action 'ARROW' (noprec):   error
+    action 'PLUS' (explicit left 9997):   shift 62
+    action 'MINUS' (explicit left 9997):   shift 63
+    action 'LESS' (noprec):   error
+    action 'INT' (noprec):   error
+    action 'CHAR' (noprec):   error
+    action 'BOOL' (noprec):   error
+    action 'IF' (noprec):   error
+    action 'THEN' (noprec):   error
+    action 'ELSE' (noprec):   error
+    action 'LET' (noprec):   error
+    action 'IN' (noprec):   shift 118
+    action 'EOF' (noprec):   error
+    action 'ID' (noprec):   error
+    action 'STRINGLIT' (noprec):   error
+    action 'CHARLIT' (noprec):   error
+    action 'NUM' (noprec):   error
+    action 'error' (noprec):   error
+    action '#' (noprec):   error
+    action '$$' (noprec):   error
+  immediate action: <none>  gotos:state 59:  items:    Exp -> Exp . 'PLUS' Exp
+    Exp -> Exp . 'MINUS' Exp
+    Exp -> Exp . 'DEQ' Exp
+    Exp -> Exp . 'LTH' Exp
+    Exp -> Exp . 'TIMES' Exp
+    Exp -> Exp . 'DIVIDE' Exp
+    Exp -> Exp . 'AND' Exp
+    Exp -> Exp . 'OR' Exp
+    LetExp -> 'ID' 'EQ' Exp 'IN' Exp . 
+  actions:    action 'BOOLVAL' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
+    action 'NEG' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'TRUE' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'FALSE' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'NOT' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'LPAR' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'RPAR' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'LBRACKET' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'RBRACKET' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'LCURLY' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'RCURLY' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'FUN' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'FN' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'COMMA' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'SEMICOLON' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'READ' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'WRITE' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'DEQ' (explicit left 9996):   shift 64
+    action 'LTH' (explicit left 9996):   shift 65
+    action 'EQ' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'OP' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'MAP' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'REDUCE' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'IOTA' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'ARROW' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'PLUS' (explicit left 9997):   shift 62
+    action 'MINUS' (explicit left 9997):   shift 63
+    action 'LESS' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'INT' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'CHAR' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'BOOL' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'IF' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'THEN' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'ELSE' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'LET' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'IN' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'EOF' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'ID' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'STRINGLIT' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'CHARLIT' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'NUM' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action 'error' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action '#' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
+    action '$$' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'IN' Exp
   immediate action: <none>  gotos:state 60:  items:    Exp -> Exp . 'PLUS' Exp
     Exp -> Exp . 'MINUS' Exp
     Exp -> Exp . 'DEQ' Exp
@@ -3192,10 +3193,10 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'OR' Exp
     FunArg -> 'FN' Type 'LPAR' 'RPAR' 'ARROW' Exp . 
   actions:    action 'BOOLVAL' (noprec):   reduce FunArg --> 'FN' Type 'LPAR' 'RPAR' 'ARROW' Exp
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
     action 'NEG' (noprec):   reduce FunArg --> 'FN' Type 'LPAR' 'RPAR' 'ARROW' Exp
     action 'TRUE' (noprec):   reduce FunArg --> 'FN' Type 'LPAR' 'RPAR' 'ARROW' Exp
     action 'FALSE' (noprec):   reduce FunArg --> 'FN' Type 'LPAR' 'RPAR' 'ARROW' Exp
@@ -3249,10 +3250,10 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'OR' Exp
     FunArg -> 'FN' Type 'LPAR' Params 'RPAR' 'ARROW' Exp . 
   actions:    action 'BOOLVAL' (noprec):   reduce FunArg --> 'FN' Type 'LPAR' Params 'RPAR' 'ARROW' Exp
-    action 'TIMES' (explicit left 9998):   shift 107
-    action 'DIVIDE' (explicit left 9998):   shift 108
-    action 'AND' (explicit left 9994):   shift 109
-    action 'OR' (explicit left 9993):   shift 110
+    action 'TIMES' (explicit left 9998):   shift 105
+    action 'DIVIDE' (explicit left 9998):   shift 106
+    action 'AND' (explicit left 9994):   shift 107
+    action 'OR' (explicit left 9993):   shift 108
     action 'NEG' (noprec):   reduce FunArg --> 'FN' Type 'LPAR' Params 'RPAR' 'ARROW' Exp
     action 'TRUE' (noprec):   reduce FunArg --> 'FN' Type 'LPAR' Params 'RPAR' 'ARROW' Exp
     action 'FALSE' (noprec):   reduce FunArg --> 'FN' Type 'LPAR' Params 'RPAR' 'ARROW' Exp
@@ -3297,15 +3298,15 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     action '#' (noprec):   reduce FunArg --> 'FN' Type 'LPAR' Params 'RPAR' 'ARROW' Exp
     action '$$' (noprec):   reduce FunArg --> 'FN' Type 'LPAR' Params 'RPAR' 'ARROW' Exp
   immediate action: <none>  gotos:state 62:  items:    Exp -> Exp 'PLUS' . Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -3347,15 +3348,15 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     action '$$' (noprec):   error
   immediate action: <none>  gotos:    goto Exp: 35
 state 63:  items:    Exp -> Exp 'MINUS' . Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -3397,15 +3398,15 @@ state 63:  items:    Exp -> Exp 'MINUS' . Exp
     action '$$' (noprec):   error
   immediate action: <none>  gotos:    goto Exp: 36
 state 64:  items:    Exp -> Exp 'DEQ' . Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -3447,15 +3448,15 @@ state 64:  items:    Exp -> Exp 'DEQ' . Exp
     action '$$' (noprec):   error
   immediate action: <none>  gotos:    goto Exp: 37
 state 65:  items:    Exp -> Exp 'LTH' . Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -3497,15 +3498,15 @@ state 65:  items:    Exp -> Exp 'LTH' . Exp
     action '$$' (noprec):   error
   immediate action: <none>  gotos:    goto Exp: 38
 state 66:  items:    Exp -> 'IF' . Exp 'THEN' Exp 'ELSE' Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -3547,15 +3548,15 @@ state 66:  items:    Exp -> 'IF' . Exp 'THEN' Exp 'ELSE' Exp
     action '$$' (noprec):   error
   immediate action: <none>  gotos:    goto Exp: 39
 state 67:  items:    Exp -> 'IF' Exp 'THEN' . Exp 'ELSE' Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -3597,15 +3598,15 @@ state 67:  items:    Exp -> 'IF' Exp 'THEN' . Exp 'ELSE' Exp
     action '$$' (noprec):   error
   immediate action: <none>  gotos:    goto Exp: 40
 state 68:  items:    Exp -> 'IF' Exp 'THEN' Exp 'ELSE' . Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -3648,15 +3649,15 @@ state 68:  items:    Exp -> 'IF' Exp 'THEN' Exp 'ELSE' . Exp
   immediate action: <none>  gotos:    goto Exp: 41
 state 69:  items:    Exp -> 'ID' 'LPAR' . Exps 'RPAR'
     Exp -> 'ID' 'LPAR' . 'RPAR'
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   shift 72
     action 'LBRACKET' (noprec):   error
@@ -3696,7 +3697,7 @@ state 69:  items:    Exp -> 'ID' 'LPAR' . Exps 'RPAR'
     action 'error' (noprec):   error
     action '#' (noprec):   error
     action '$$' (noprec):   error
-  immediate action: <none>  gotos:    goto Exp: 59
+  immediate action: <none>  gotos:    goto Exp: 57
     goto Exps: 70
 state 70:  items:    Exp -> 'ID' 'LPAR' Exps . 'RPAR'
   actions:    action 'BOOLVAL' (noprec):   error
@@ -4092,15 +4093,15 @@ state 75:  items:    Exp -> 'READ' 'LPAR' Type . 'RPAR'
     action '#' (noprec):   error
     action '$$' (noprec):   error
   immediate action: <none>  gotos:state 78:  items:    Exp -> 'WRITE' 'LPAR' . Exp 'RPAR'
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -4240,15 +4241,15 @@ state 79:  items:    Exp -> 'WRITE' 'LPAR' Exp 'RPAR' .
     action '#' (noprec):   error
     action '$$' (noprec):   error
   immediate action: <none>  gotos:state 81:  items:    Exp -> 'IOTA' 'LPAR' . Exp 'RPAR'
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -4404,7 +4405,7 @@ state 82:  items:    Exp -> 'IOTA' 'LPAR' Exp 'RPAR' .
     action 'LCURLY' (noprec):   error
     action 'RCURLY' (noprec):   error
     action 'FUN' (noprec):   error
-    action 'FN' (noprec):   shift 117
+    action 'FN' (noprec):   shift 120
     action 'COMMA' (noprec):   error
     action 'SEMICOLON' (noprec):   error
     action 'READ' (noprec):   error
@@ -4429,7 +4430,7 @@ state 82:  items:    Exp -> 'IOTA' 'LPAR' Exp 'RPAR' .
     action 'LET' (noprec):   error
     action 'IN' (noprec):   error
     action 'EOF' (noprec):   error
-    action 'ID' (noprec):   shift 116
+    action 'ID' (noprec):   shift 119
     action 'STRINGLIT' (noprec):   error
     action 'CHARLIT' (noprec):   error
     action 'NUM' (noprec):   error
@@ -4487,15 +4488,15 @@ state 85:  items:    Exp -> 'MAP' 'LPAR' FunArg . 'COMMA' Exp 'RPAR'
     action '#' (noprec):   error
     action '$$' (noprec):   error
   immediate action: <none>  gotos:state 86:  items:    Exp -> 'MAP' 'LPAR' FunArg 'COMMA' . Exp 'RPAR'
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -4653,7 +4654,7 @@ state 87:  items:    Exp -> 'MAP' 'LPAR' FunArg 'COMMA' Exp 'RPAR' .
     action 'LCURLY' (noprec):   error
     action 'RCURLY' (noprec):   error
     action 'FUN' (noprec):   error
-    action 'FN' (noprec):   shift 117
+    action 'FN' (noprec):   shift 120
     action 'COMMA' (noprec):   error
     action 'SEMICOLON' (noprec):   error
     action 'READ' (noprec):   error
@@ -4678,7 +4679,7 @@ state 87:  items:    Exp -> 'MAP' 'LPAR' FunArg 'COMMA' Exp 'RPAR' .
     action 'LET' (noprec):   error
     action 'IN' (noprec):   error
     action 'EOF' (noprec):   error
-    action 'ID' (noprec):   shift 116
+    action 'ID' (noprec):   shift 119
     action 'STRINGLIT' (noprec):   error
     action 'CHARLIT' (noprec):   error
     action 'NUM' (noprec):   error
@@ -4736,15 +4737,15 @@ state 90:  items:    Exp -> 'REDUCE' 'LPAR' FunArg . 'COMMA' Exp 'COMMA' Exp 'RP
     action '#' (noprec):   error
     action '$$' (noprec):   error
   immediate action: <none>  gotos:state 91:  items:    Exp -> 'REDUCE' 'LPAR' FunArg 'COMMA' . Exp 'COMMA' Exp 'RPAR'
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -4786,15 +4787,15 @@ state 90:  items:    Exp -> 'REDUCE' 'LPAR' FunArg . 'COMMA' Exp 'COMMA' Exp 'RP
     action '$$' (noprec):   error
   immediate action: <none>  gotos:    goto Exp: 45
 state 92:  items:    Exp -> 'REDUCE' 'LPAR' FunArg 'COMMA' Exp 'COMMA' . Exp 'RPAR'
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -4984,15 +4985,15 @@ state 95:  items:    Exp -> 'REDUCE' 'LPAR' 'OP' BinOp . 'COMMA' Exp 'COMMA' Exp
     action '#' (noprec):   error
     action '$$' (noprec):   error
   immediate action: <none>  gotos:state 96:  items:    Exp -> 'REDUCE' 'LPAR' 'OP' BinOp 'COMMA' . Exp 'COMMA' Exp 'RPAR'
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -5034,15 +5035,15 @@ state 95:  items:    Exp -> 'REDUCE' 'LPAR' 'OP' BinOp . 'COMMA' Exp 'COMMA' Exp
     action '$$' (noprec):   error
   immediate action: <none>  gotos:    goto Exp: 47
 state 97:  items:    Exp -> 'REDUCE' 'LPAR' 'OP' BinOp 'COMMA' Exp 'COMMA' . Exp 'RPAR'
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -5133,15 +5134,15 @@ state 98:  items:    Exp -> 'REDUCE' 'LPAR' 'OP' BinOp 'COMMA' Exp 'COMMA' Exp '
     action '#' (noprec):   reduce Exp --> 'REDUCE' 'LPAR' 'OP' BinOp 'COMMA' Exp 'COMMA' Exp 'RPAR'
     action '$$' (noprec):   reduce Exp --> 'REDUCE' 'LPAR' 'OP' BinOp 'COMMA' Exp 'COMMA' Exp 'RPAR'
   immediate action:   reduce Exp --> 'REDUCE' 'LPAR' 'OP' BinOp 'COMMA' Exp 'COMMA' Exp 'RPAR'  gotos:state 99:  items:    Exp -> 'LPAR' . Exp 'RPAR'
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -5231,7 +5232,7 @@ state 100:  items:    Exp -> 'LPAR' Exp 'RPAR' .
     action 'error' (noprec):   reduce Exp --> 'LPAR' Exp 'RPAR'
     action '#' (noprec):   reduce Exp --> 'LPAR' Exp 'RPAR'
     action '$$' (noprec):   reduce Exp --> 'LPAR' Exp 'RPAR'
-  immediate action:   reduce Exp --> 'LPAR' Exp 'RPAR'  gotos:state 101:  items:    Exp -> 'LET' . 'ID' 'EQ' Exp 'IN' Exp
+  immediate action:   reduce Exp --> 'LPAR' Exp 'RPAR'  gotos:state 101:  items:    Exp -> 'LET' . LetExp
   actions:    action 'BOOLVAL' (noprec):   error
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
@@ -5273,72 +5274,73 @@ state 100:  items:    Exp -> 'LPAR' Exp 'RPAR' .
     action 'LET' (noprec):   error
     action 'IN' (noprec):   error
     action 'EOF' (noprec):   error
-    action 'ID' (noprec):   shift 102
+    action 'ID' (noprec):   shift 114
     action 'STRINGLIT' (noprec):   error
     action 'CHARLIT' (noprec):   error
     action 'NUM' (noprec):   error
     action 'error' (noprec):   error
     action '#' (noprec):   error
     action '$$' (noprec):   error
-  immediate action: <none>  gotos:state 102:  items:    Exp -> 'LET' 'ID' . 'EQ' Exp 'IN' Exp
-  actions:    action 'BOOLVAL' (noprec):   error
+  immediate action: <none>  gotos:    goto LetExp: 102
+state 102:  items:    Exp -> 'LET' LetExp . 
+  actions:    action 'BOOLVAL' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'TIMES' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'DIVIDE' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'AND' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'OR' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'NEG' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'TRUE' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'FALSE' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'NOT' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'LPAR' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'RPAR' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'LBRACKET' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'RBRACKET' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'LCURLY' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'RCURLY' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'FUN' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'FN' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'COMMA' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'SEMICOLON' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'READ' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'WRITE' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'DEQ' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'LTH' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'EQ' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'OP' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'MAP' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'REDUCE' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'IOTA' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'ARROW' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'PLUS' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'MINUS' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'LESS' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'INT' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'CHAR' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'BOOL' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'IF' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'THEN' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'ELSE' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'LET' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'IN' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'EOF' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'ID' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'STRINGLIT' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'CHARLIT' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'NUM' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action 'error' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action '#' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+    action '$$' (explicit nonassoc 9992):   reduce Exp --> 'LET' LetExp
+  immediate action:   reduce Exp --> 'LET' LetExp  gotos:state 103:  items:    Exp -> 'ID' 'LBRACKET' . Exp 'RBRACKET'
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (noprec):   error
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (noprec):   error
-    action 'LPAR' (noprec):   error
-    action 'RPAR' (noprec):   error
-    action 'LBRACKET' (noprec):   error
-    action 'RBRACKET' (noprec):   error
-    action 'LCURLY' (noprec):   error
-    action 'RCURLY' (noprec):   error
-    action 'FUN' (noprec):   error
-    action 'FN' (noprec):   error
-    action 'COMMA' (noprec):   error
-    action 'SEMICOLON' (noprec):   error
-    action 'READ' (noprec):   error
-    action 'WRITE' (noprec):   error
-    action 'DEQ' (noprec):   error
-    action 'LTH' (noprec):   error
-    action 'EQ' (noprec):   shift 103
-    action 'OP' (noprec):   error
-    action 'MAP' (noprec):   error
-    action 'REDUCE' (noprec):   error
-    action 'IOTA' (noprec):   error
-    action 'ARROW' (noprec):   error
-    action 'PLUS' (noprec):   error
-    action 'MINUS' (noprec):   error
-    action 'LESS' (noprec):   error
-    action 'INT' (noprec):   error
-    action 'CHAR' (noprec):   error
-    action 'BOOL' (noprec):   error
-    action 'IF' (noprec):   error
-    action 'THEN' (noprec):   error
-    action 'ELSE' (noprec):   error
-    action 'LET' (noprec):   error
-    action 'IN' (noprec):   error
-    action 'EOF' (noprec):   error
-    action 'ID' (noprec):   error
-    action 'STRINGLIT' (noprec):   error
-    action 'CHARLIT' (noprec):   error
-    action 'NUM' (noprec):   error
-    action 'error' (noprec):   error
-    action '#' (noprec):   error
-    action '$$' (noprec):   error
-  immediate action: <none>  gotos:state 103:  items:    Exp -> 'LET' 'ID' 'EQ' . Exp 'IN' Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
-    action 'TIMES' (noprec):   error
-    action 'DIVIDE' (noprec):   error
-    action 'AND' (noprec):   error
-    action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
-    action 'TRUE' (noprec):   error
-    action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -5379,107 +5381,7 @@ state 100:  items:    Exp -> 'LPAR' Exp 'RPAR' .
     action '#' (noprec):   error
     action '$$' (noprec):   error
   immediate action: <none>  gotos:    goto Exp: 50
-state 104:  items:    Exp -> 'LET' 'ID' 'EQ' Exp 'IN' . Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
-    action 'TIMES' (noprec):   error
-    action 'DIVIDE' (noprec):   error
-    action 'AND' (noprec):   error
-    action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
-    action 'TRUE' (noprec):   error
-    action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
-    action 'LPAR' (noprec):   shift 99
-    action 'RPAR' (noprec):   error
-    action 'LBRACKET' (noprec):   error
-    action 'RBRACKET' (noprec):   error
-    action 'LCURLY' (noprec):   shift 32
-    action 'RCURLY' (noprec):   error
-    action 'FUN' (noprec):   error
-    action 'FN' (noprec):   error
-    action 'COMMA' (noprec):   error
-    action 'SEMICOLON' (noprec):   error
-    action 'READ' (noprec):   shift 73
-    action 'WRITE' (noprec):   shift 77
-    action 'DEQ' (noprec):   error
-    action 'LTH' (noprec):   error
-    action 'EQ' (noprec):   error
-    action 'OP' (noprec):   error
-    action 'MAP' (noprec):   shift 83
-    action 'REDUCE' (noprec):   shift 88
-    action 'IOTA' (noprec):   shift 80
-    action 'ARROW' (noprec):   error
-    action 'PLUS' (noprec):   error
-    action 'MINUS' (noprec):   error
-    action 'LESS' (noprec):   error
-    action 'INT' (noprec):   error
-    action 'CHAR' (noprec):   error
-    action 'BOOL' (noprec):   error
-    action 'IF' (noprec):   shift 66
-    action 'THEN' (noprec):   error
-    action 'ELSE' (noprec):   error
-    action 'LET' (noprec):   shift 101
-    action 'IN' (noprec):   error
-    action 'EOF' (noprec):   error
-    action 'ID' (noprec):   shift 30
-    action 'STRINGLIT' (noprec):   shift 31
-    action 'CHARLIT' (noprec):   shift 29
-    action 'NUM' (noprec):   shift 28
-    action 'error' (noprec):   error
-    action '#' (noprec):   error
-    action '$$' (noprec):   error
-  immediate action: <none>  gotos:    goto Exp: 51
-state 105:  items:    Exp -> 'ID' 'LBRACKET' . Exp 'RBRACKET'
-  actions:    action 'BOOLVAL' (noprec):   shift 113
-    action 'TIMES' (noprec):   error
-    action 'DIVIDE' (noprec):   error
-    action 'AND' (noprec):   error
-    action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
-    action 'TRUE' (noprec):   error
-    action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
-    action 'LPAR' (noprec):   shift 99
-    action 'RPAR' (noprec):   error
-    action 'LBRACKET' (noprec):   error
-    action 'RBRACKET' (noprec):   error
-    action 'LCURLY' (noprec):   shift 32
-    action 'RCURLY' (noprec):   error
-    action 'FUN' (noprec):   error
-    action 'FN' (noprec):   error
-    action 'COMMA' (noprec):   error
-    action 'SEMICOLON' (noprec):   error
-    action 'READ' (noprec):   shift 73
-    action 'WRITE' (noprec):   shift 77
-    action 'DEQ' (noprec):   error
-    action 'LTH' (noprec):   error
-    action 'EQ' (noprec):   error
-    action 'OP' (noprec):   error
-    action 'MAP' (noprec):   shift 83
-    action 'REDUCE' (noprec):   shift 88
-    action 'IOTA' (noprec):   shift 80
-    action 'ARROW' (noprec):   error
-    action 'PLUS' (noprec):   error
-    action 'MINUS' (noprec):   error
-    action 'LESS' (noprec):   error
-    action 'INT' (noprec):   error
-    action 'CHAR' (noprec):   error
-    action 'BOOL' (noprec):   error
-    action 'IF' (noprec):   shift 66
-    action 'THEN' (noprec):   error
-    action 'ELSE' (noprec):   error
-    action 'LET' (noprec):   shift 101
-    action 'IN' (noprec):   error
-    action 'EOF' (noprec):   error
-    action 'ID' (noprec):   shift 30
-    action 'STRINGLIT' (noprec):   shift 31
-    action 'CHARLIT' (noprec):   shift 29
-    action 'NUM' (noprec):   shift 28
-    action 'error' (noprec):   error
-    action '#' (noprec):   error
-    action '$$' (noprec):   error
-  immediate action: <none>  gotos:    goto Exp: 52
-state 106:  items:    Exp -> 'ID' 'LBRACKET' Exp 'RBRACKET' . 
+state 104:  items:    Exp -> 'ID' 'LBRACKET' Exp 'RBRACKET' . 
   actions:    action 'BOOLVAL' (noprec):   reduce Exp --> 'ID' 'LBRACKET' Exp 'RBRACKET'
     action 'TIMES' (noprec):   reduce Exp --> 'ID' 'LBRACKET' Exp 'RBRACKET'
     action 'DIVIDE' (noprec):   reduce Exp --> 'ID' 'LBRACKET' Exp 'RBRACKET'
@@ -5528,16 +5430,116 @@ state 106:  items:    Exp -> 'ID' 'LBRACKET' Exp 'RBRACKET' .
     action 'error' (noprec):   reduce Exp --> 'ID' 'LBRACKET' Exp 'RBRACKET'
     action '#' (noprec):   reduce Exp --> 'ID' 'LBRACKET' Exp 'RBRACKET'
     action '$$' (noprec):   reduce Exp --> 'ID' 'LBRACKET' Exp 'RBRACKET'
-  immediate action:   reduce Exp --> 'ID' 'LBRACKET' Exp 'RBRACKET'  gotos:state 107:  items:    Exp -> Exp 'TIMES' . Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  immediate action:   reduce Exp --> 'ID' 'LBRACKET' Exp 'RBRACKET'  gotos:state 105:  items:    Exp -> Exp 'TIMES' . Exp
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
+    action 'LPAR' (noprec):   shift 99
+    action 'RPAR' (noprec):   error
+    action 'LBRACKET' (noprec):   error
+    action 'RBRACKET' (noprec):   error
+    action 'LCURLY' (noprec):   shift 32
+    action 'RCURLY' (noprec):   error
+    action 'FUN' (noprec):   error
+    action 'FN' (noprec):   error
+    action 'COMMA' (noprec):   error
+    action 'SEMICOLON' (noprec):   error
+    action 'READ' (noprec):   shift 73
+    action 'WRITE' (noprec):   shift 77
+    action 'DEQ' (noprec):   error
+    action 'LTH' (noprec):   error
+    action 'EQ' (noprec):   error
+    action 'OP' (noprec):   error
+    action 'MAP' (noprec):   shift 83
+    action 'REDUCE' (noprec):   shift 88
+    action 'IOTA' (noprec):   shift 80
+    action 'ARROW' (noprec):   error
+    action 'PLUS' (noprec):   error
+    action 'MINUS' (noprec):   error
+    action 'LESS' (noprec):   error
+    action 'INT' (noprec):   error
+    action 'CHAR' (noprec):   error
+    action 'BOOL' (noprec):   error
+    action 'IF' (noprec):   shift 66
+    action 'THEN' (noprec):   error
+    action 'ELSE' (noprec):   error
+    action 'LET' (noprec):   shift 101
+    action 'IN' (noprec):   error
+    action 'EOF' (noprec):   error
+    action 'ID' (noprec):   shift 30
+    action 'STRINGLIT' (noprec):   shift 31
+    action 'CHARLIT' (noprec):   shift 29
+    action 'NUM' (noprec):   shift 28
+    action 'error' (noprec):   error
+    action '#' (noprec):   error
+    action '$$' (noprec):   error
+  immediate action: <none>  gotos:    goto Exp: 51
+state 106:  items:    Exp -> Exp 'DIVIDE' . Exp
+  actions:    action 'BOOLVAL' (noprec):   shift 111
+    action 'TIMES' (noprec):   error
+    action 'DIVIDE' (noprec):   error
+    action 'AND' (noprec):   error
+    action 'OR' (noprec):   error
+    action 'NEG' (explicit left 9999):   shift 110
+    action 'TRUE' (noprec):   error
+    action 'FALSE' (noprec):   error
+    action 'NOT' (explicit left 9995):   shift 109
+    action 'LPAR' (noprec):   shift 99
+    action 'RPAR' (noprec):   error
+    action 'LBRACKET' (noprec):   error
+    action 'RBRACKET' (noprec):   error
+    action 'LCURLY' (noprec):   shift 32
+    action 'RCURLY' (noprec):   error
+    action 'FUN' (noprec):   error
+    action 'FN' (noprec):   error
+    action 'COMMA' (noprec):   error
+    action 'SEMICOLON' (noprec):   error
+    action 'READ' (noprec):   shift 73
+    action 'WRITE' (noprec):   shift 77
+    action 'DEQ' (noprec):   error
+    action 'LTH' (noprec):   error
+    action 'EQ' (noprec):   error
+    action 'OP' (noprec):   error
+    action 'MAP' (noprec):   shift 83
+    action 'REDUCE' (noprec):   shift 88
+    action 'IOTA' (noprec):   shift 80
+    action 'ARROW' (noprec):   error
+    action 'PLUS' (noprec):   error
+    action 'MINUS' (noprec):   error
+    action 'LESS' (noprec):   error
+    action 'INT' (noprec):   error
+    action 'CHAR' (noprec):   error
+    action 'BOOL' (noprec):   error
+    action 'IF' (noprec):   shift 66
+    action 'THEN' (noprec):   error
+    action 'ELSE' (noprec):   error
+    action 'LET' (noprec):   shift 101
+    action 'IN' (noprec):   error
+    action 'EOF' (noprec):   error
+    action 'ID' (noprec):   shift 30
+    action 'STRINGLIT' (noprec):   shift 31
+    action 'CHARLIT' (noprec):   shift 29
+    action 'NUM' (noprec):   shift 28
+    action 'error' (noprec):   error
+    action '#' (noprec):   error
+    action '$$' (noprec):   error
+  immediate action: <none>  gotos:    goto Exp: 52
+state 107:  items:    Exp -> Exp 'AND' . Exp
+  actions:    action 'BOOLVAL' (noprec):   shift 111
+    action 'TIMES' (noprec):   error
+    action 'DIVIDE' (noprec):   error
+    action 'AND' (noprec):   error
+    action 'OR' (noprec):   error
+    action 'NEG' (explicit left 9999):   shift 110
+    action 'TRUE' (noprec):   error
+    action 'FALSE' (noprec):   error
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -5578,16 +5580,16 @@ state 106:  items:    Exp -> 'ID' 'LBRACKET' Exp 'RBRACKET' .
     action '#' (noprec):   error
     action '$$' (noprec):   error
   immediate action: <none>  gotos:    goto Exp: 53
-state 108:  items:    Exp -> Exp 'DIVIDE' . Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+state 108:  items:    Exp -> Exp 'OR' . Exp
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -5628,16 +5630,16 @@ state 108:  items:    Exp -> Exp 'DIVIDE' . Exp
     action '#' (noprec):   error
     action '$$' (noprec):   error
   immediate action: <none>  gotos:    goto Exp: 54
-state 109:  items:    Exp -> Exp 'AND' . Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+state 109:  items:    Exp -> 'NOT' . Exp
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -5678,16 +5680,16 @@ state 109:  items:    Exp -> Exp 'AND' . Exp
     action '#' (noprec):   error
     action '$$' (noprec):   error
   immediate action: <none>  gotos:    goto Exp: 55
-state 110:  items:    Exp -> Exp 'OR' . Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+state 110:  items:    Exp -> 'NEG' . Exp
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -5728,107 +5730,7 @@ state 110:  items:    Exp -> Exp 'OR' . Exp
     action '#' (noprec):   error
     action '$$' (noprec):   error
   immediate action: <none>  gotos:    goto Exp: 56
-state 111:  items:    Exp -> 'NOT' . Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
-    action 'TIMES' (noprec):   error
-    action 'DIVIDE' (noprec):   error
-    action 'AND' (noprec):   error
-    action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
-    action 'TRUE' (noprec):   error
-    action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
-    action 'LPAR' (noprec):   shift 99
-    action 'RPAR' (noprec):   error
-    action 'LBRACKET' (noprec):   error
-    action 'RBRACKET' (noprec):   error
-    action 'LCURLY' (noprec):   shift 32
-    action 'RCURLY' (noprec):   error
-    action 'FUN' (noprec):   error
-    action 'FN' (noprec):   error
-    action 'COMMA' (noprec):   error
-    action 'SEMICOLON' (noprec):   error
-    action 'READ' (noprec):   shift 73
-    action 'WRITE' (noprec):   shift 77
-    action 'DEQ' (noprec):   error
-    action 'LTH' (noprec):   error
-    action 'EQ' (noprec):   error
-    action 'OP' (noprec):   error
-    action 'MAP' (noprec):   shift 83
-    action 'REDUCE' (noprec):   shift 88
-    action 'IOTA' (noprec):   shift 80
-    action 'ARROW' (noprec):   error
-    action 'PLUS' (noprec):   error
-    action 'MINUS' (noprec):   error
-    action 'LESS' (noprec):   error
-    action 'INT' (noprec):   error
-    action 'CHAR' (noprec):   error
-    action 'BOOL' (noprec):   error
-    action 'IF' (noprec):   shift 66
-    action 'THEN' (noprec):   error
-    action 'ELSE' (noprec):   error
-    action 'LET' (noprec):   shift 101
-    action 'IN' (noprec):   error
-    action 'EOF' (noprec):   error
-    action 'ID' (noprec):   shift 30
-    action 'STRINGLIT' (noprec):   shift 31
-    action 'CHARLIT' (noprec):   shift 29
-    action 'NUM' (noprec):   shift 28
-    action 'error' (noprec):   error
-    action '#' (noprec):   error
-    action '$$' (noprec):   error
-  immediate action: <none>  gotos:    goto Exp: 57
-state 112:  items:    Exp -> 'NEG' . Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
-    action 'TIMES' (noprec):   error
-    action 'DIVIDE' (noprec):   error
-    action 'AND' (noprec):   error
-    action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
-    action 'TRUE' (noprec):   error
-    action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
-    action 'LPAR' (noprec):   shift 99
-    action 'RPAR' (noprec):   error
-    action 'LBRACKET' (noprec):   error
-    action 'RBRACKET' (noprec):   error
-    action 'LCURLY' (noprec):   shift 32
-    action 'RCURLY' (noprec):   error
-    action 'FUN' (noprec):   error
-    action 'FN' (noprec):   error
-    action 'COMMA' (noprec):   error
-    action 'SEMICOLON' (noprec):   error
-    action 'READ' (noprec):   shift 73
-    action 'WRITE' (noprec):   shift 77
-    action 'DEQ' (noprec):   error
-    action 'LTH' (noprec):   error
-    action 'EQ' (noprec):   error
-    action 'OP' (noprec):   error
-    action 'MAP' (noprec):   shift 83
-    action 'REDUCE' (noprec):   shift 88
-    action 'IOTA' (noprec):   shift 80
-    action 'ARROW' (noprec):   error
-    action 'PLUS' (noprec):   error
-    action 'MINUS' (noprec):   error
-    action 'LESS' (noprec):   error
-    action 'INT' (noprec):   error
-    action 'CHAR' (noprec):   error
-    action 'BOOL' (noprec):   error
-    action 'IF' (noprec):   shift 66
-    action 'THEN' (noprec):   error
-    action 'ELSE' (noprec):   error
-    action 'LET' (noprec):   shift 101
-    action 'IN' (noprec):   error
-    action 'EOF' (noprec):   error
-    action 'ID' (noprec):   shift 30
-    action 'STRINGLIT' (noprec):   shift 31
-    action 'CHARLIT' (noprec):   shift 29
-    action 'NUM' (noprec):   shift 28
-    action 'error' (noprec):   error
-    action '#' (noprec):   error
-    action '$$' (noprec):   error
-  immediate action: <none>  gotos:    goto Exp: 58
-state 113:  items:    Exp -> 'BOOLVAL' . 
+state 111:  items:    Exp -> 'BOOLVAL' . 
   actions:    action 'BOOLVAL' (noprec):   reduce Exp --> 'BOOLVAL'
     action 'TIMES' (noprec):   reduce Exp --> 'BOOLVAL'
     action 'DIVIDE' (noprec):   reduce Exp --> 'BOOLVAL'
@@ -5877,16 +5779,16 @@ state 113:  items:    Exp -> 'BOOLVAL' .
     action 'error' (noprec):   reduce Exp --> 'BOOLVAL'
     action '#' (noprec):   reduce Exp --> 'BOOLVAL'
     action '$$' (noprec):   reduce Exp --> 'BOOLVAL'
-  immediate action:   reduce Exp --> 'BOOLVAL'  gotos:state 114:  items:    Exps -> Exp 'COMMA' . Exps
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  immediate action:   reduce Exp --> 'BOOLVAL'  gotos:state 112:  items:    Exps -> Exp 'COMMA' . Exps
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -5926,9 +5828,9 @@ state 113:  items:    Exp -> 'BOOLVAL' .
     action 'error' (noprec):   error
     action '#' (noprec):   error
     action '$$' (noprec):   error
-  immediate action: <none>  gotos:    goto Exp: 59
-    goto Exps: 115
-state 115:  items:    Exps -> Exp 'COMMA' Exps . 
+  immediate action: <none>  gotos:    goto Exp: 57
+    goto Exps: 113
+state 113:  items:    Exps -> Exp 'COMMA' Exps . 
   actions:    action 'BOOLVAL' (noprec):   reduce Exps --> Exp 'COMMA' Exps
     action 'TIMES' (noprec):   reduce Exps --> Exp 'COMMA' Exps
     action 'DIVIDE' (noprec):   reduce Exps --> Exp 'COMMA' Exps
@@ -5977,7 +5879,257 @@ state 115:  items:    Exps -> Exp 'COMMA' Exps .
     action 'error' (noprec):   reduce Exps --> Exp 'COMMA' Exps
     action '#' (noprec):   reduce Exps --> Exp 'COMMA' Exps
     action '$$' (noprec):   reduce Exps --> Exp 'COMMA' Exps
-  immediate action:   reduce Exps --> Exp 'COMMA' Exps  gotos:state 116:  items:    FunArg -> 'ID' . 
+  immediate action:   reduce Exps --> Exp 'COMMA' Exps  gotos:state 114:  items:    LetExp -> 'ID' . 'EQ' Exp 'SEMICOLON' LetExp
+    LetExp -> 'ID' . 'EQ' Exp 'IN' Exp
+  actions:    action 'BOOLVAL' (noprec):   error
+    action 'TIMES' (noprec):   error
+    action 'DIVIDE' (noprec):   error
+    action 'AND' (noprec):   error
+    action 'OR' (noprec):   error
+    action 'NEG' (noprec):   error
+    action 'TRUE' (noprec):   error
+    action 'FALSE' (noprec):   error
+    action 'NOT' (noprec):   error
+    action 'LPAR' (noprec):   error
+    action 'RPAR' (noprec):   error
+    action 'LBRACKET' (noprec):   error
+    action 'RBRACKET' (noprec):   error
+    action 'LCURLY' (noprec):   error
+    action 'RCURLY' (noprec):   error
+    action 'FUN' (noprec):   error
+    action 'FN' (noprec):   error
+    action 'COMMA' (noprec):   error
+    action 'SEMICOLON' (noprec):   error
+    action 'READ' (noprec):   error
+    action 'WRITE' (noprec):   error
+    action 'DEQ' (noprec):   error
+    action 'LTH' (noprec):   error
+    action 'EQ' (noprec):   shift 115
+    action 'OP' (noprec):   error
+    action 'MAP' (noprec):   error
+    action 'REDUCE' (noprec):   error
+    action 'IOTA' (noprec):   error
+    action 'ARROW' (noprec):   error
+    action 'PLUS' (noprec):   error
+    action 'MINUS' (noprec):   error
+    action 'LESS' (noprec):   error
+    action 'INT' (noprec):   error
+    action 'CHAR' (noprec):   error
+    action 'BOOL' (noprec):   error
+    action 'IF' (noprec):   error
+    action 'THEN' (noprec):   error
+    action 'ELSE' (noprec):   error
+    action 'LET' (noprec):   error
+    action 'IN' (noprec):   error
+    action 'EOF' (noprec):   error
+    action 'ID' (noprec):   error
+    action 'STRINGLIT' (noprec):   error
+    action 'CHARLIT' (noprec):   error
+    action 'NUM' (noprec):   error
+    action 'error' (noprec):   error
+    action '#' (noprec):   error
+    action '$$' (noprec):   error
+  immediate action: <none>  gotos:state 115:  items:    LetExp -> 'ID' 'EQ' . Exp 'SEMICOLON' LetExp
+    LetExp -> 'ID' 'EQ' . Exp 'IN' Exp
+  actions:    action 'BOOLVAL' (noprec):   shift 111
+    action 'TIMES' (noprec):   error
+    action 'DIVIDE' (noprec):   error
+    action 'AND' (noprec):   error
+    action 'OR' (noprec):   error
+    action 'NEG' (explicit left 9999):   shift 110
+    action 'TRUE' (noprec):   error
+    action 'FALSE' (noprec):   error
+    action 'NOT' (explicit left 9995):   shift 109
+    action 'LPAR' (noprec):   shift 99
+    action 'RPAR' (noprec):   error
+    action 'LBRACKET' (noprec):   error
+    action 'RBRACKET' (noprec):   error
+    action 'LCURLY' (noprec):   shift 32
+    action 'RCURLY' (noprec):   error
+    action 'FUN' (noprec):   error
+    action 'FN' (noprec):   error
+    action 'COMMA' (noprec):   error
+    action 'SEMICOLON' (noprec):   error
+    action 'READ' (noprec):   shift 73
+    action 'WRITE' (noprec):   shift 77
+    action 'DEQ' (noprec):   error
+    action 'LTH' (noprec):   error
+    action 'EQ' (noprec):   error
+    action 'OP' (noprec):   error
+    action 'MAP' (noprec):   shift 83
+    action 'REDUCE' (noprec):   shift 88
+    action 'IOTA' (noprec):   shift 80
+    action 'ARROW' (noprec):   error
+    action 'PLUS' (noprec):   error
+    action 'MINUS' (noprec):   error
+    action 'LESS' (noprec):   error
+    action 'INT' (noprec):   error
+    action 'CHAR' (noprec):   error
+    action 'BOOL' (noprec):   error
+    action 'IF' (noprec):   shift 66
+    action 'THEN' (noprec):   error
+    action 'ELSE' (noprec):   error
+    action 'LET' (noprec):   shift 101
+    action 'IN' (noprec):   error
+    action 'EOF' (noprec):   error
+    action 'ID' (noprec):   shift 30
+    action 'STRINGLIT' (noprec):   shift 31
+    action 'CHARLIT' (noprec):   shift 29
+    action 'NUM' (noprec):   shift 28
+    action 'error' (noprec):   error
+    action '#' (noprec):   error
+    action '$$' (noprec):   error
+  immediate action: <none>  gotos:    goto Exp: 58
+state 116:  items:    LetExp -> 'ID' 'EQ' Exp 'SEMICOLON' . LetExp
+  actions:    action 'BOOLVAL' (noprec):   error
+    action 'TIMES' (noprec):   error
+    action 'DIVIDE' (noprec):   error
+    action 'AND' (noprec):   error
+    action 'OR' (noprec):   error
+    action 'NEG' (noprec):   error
+    action 'TRUE' (noprec):   error
+    action 'FALSE' (noprec):   error
+    action 'NOT' (noprec):   error
+    action 'LPAR' (noprec):   error
+    action 'RPAR' (noprec):   error
+    action 'LBRACKET' (noprec):   error
+    action 'RBRACKET' (noprec):   error
+    action 'LCURLY' (noprec):   error
+    action 'RCURLY' (noprec):   error
+    action 'FUN' (noprec):   error
+    action 'FN' (noprec):   error
+    action 'COMMA' (noprec):   error
+    action 'SEMICOLON' (noprec):   error
+    action 'READ' (noprec):   error
+    action 'WRITE' (noprec):   error
+    action 'DEQ' (noprec):   error
+    action 'LTH' (noprec):   error
+    action 'EQ' (noprec):   error
+    action 'OP' (noprec):   error
+    action 'MAP' (noprec):   error
+    action 'REDUCE' (noprec):   error
+    action 'IOTA' (noprec):   error
+    action 'ARROW' (noprec):   error
+    action 'PLUS' (noprec):   error
+    action 'MINUS' (noprec):   error
+    action 'LESS' (noprec):   error
+    action 'INT' (noprec):   error
+    action 'CHAR' (noprec):   error
+    action 'BOOL' (noprec):   error
+    action 'IF' (noprec):   error
+    action 'THEN' (noprec):   error
+    action 'ELSE' (noprec):   error
+    action 'LET' (noprec):   error
+    action 'IN' (noprec):   error
+    action 'EOF' (noprec):   error
+    action 'ID' (noprec):   shift 114
+    action 'STRINGLIT' (noprec):   error
+    action 'CHARLIT' (noprec):   error
+    action 'NUM' (noprec):   error
+    action 'error' (noprec):   error
+    action '#' (noprec):   error
+    action '$$' (noprec):   error
+  immediate action: <none>  gotos:    goto LetExp: 117
+state 117:  items:    LetExp -> 'ID' 'EQ' Exp 'SEMICOLON' LetExp . 
+  actions:    action 'BOOLVAL' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'TIMES' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'DIVIDE' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'AND' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'OR' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'NEG' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'TRUE' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'FALSE' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'NOT' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'LPAR' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'RPAR' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'LBRACKET' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'RBRACKET' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'LCURLY' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'RCURLY' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'FUN' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'FN' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'COMMA' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'SEMICOLON' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'READ' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'WRITE' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'DEQ' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'LTH' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'EQ' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'OP' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'MAP' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'REDUCE' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'IOTA' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'ARROW' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'PLUS' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'MINUS' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'LESS' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'INT' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'CHAR' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'BOOL' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'IF' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'THEN' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'ELSE' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'LET' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'IN' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'EOF' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'ID' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'STRINGLIT' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'CHARLIT' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'NUM' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action 'error' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action '#' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+    action '$$' (explicit nonassoc 9992):   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp
+  immediate action:   reduce LetExp --> 'ID' 'EQ' Exp 'SEMICOLON' LetExp  gotos:state 118:  items:    LetExp -> 'ID' 'EQ' Exp 'IN' . Exp
+  actions:    action 'BOOLVAL' (noprec):   shift 111
+    action 'TIMES' (noprec):   error
+    action 'DIVIDE' (noprec):   error
+    action 'AND' (noprec):   error
+    action 'OR' (noprec):   error
+    action 'NEG' (explicit left 9999):   shift 110
+    action 'TRUE' (noprec):   error
+    action 'FALSE' (noprec):   error
+    action 'NOT' (explicit left 9995):   shift 109
+    action 'LPAR' (noprec):   shift 99
+    action 'RPAR' (noprec):   error
+    action 'LBRACKET' (noprec):   error
+    action 'RBRACKET' (noprec):   error
+    action 'LCURLY' (noprec):   shift 32
+    action 'RCURLY' (noprec):   error
+    action 'FUN' (noprec):   error
+    action 'FN' (noprec):   error
+    action 'COMMA' (noprec):   error
+    action 'SEMICOLON' (noprec):   error
+    action 'READ' (noprec):   shift 73
+    action 'WRITE' (noprec):   shift 77
+    action 'DEQ' (noprec):   error
+    action 'LTH' (noprec):   error
+    action 'EQ' (noprec):   error
+    action 'OP' (noprec):   error
+    action 'MAP' (noprec):   shift 83
+    action 'REDUCE' (noprec):   shift 88
+    action 'IOTA' (noprec):   shift 80
+    action 'ARROW' (noprec):   error
+    action 'PLUS' (noprec):   error
+    action 'MINUS' (noprec):   error
+    action 'LESS' (noprec):   error
+    action 'INT' (noprec):   error
+    action 'CHAR' (noprec):   error
+    action 'BOOL' (noprec):   error
+    action 'IF' (noprec):   shift 66
+    action 'THEN' (noprec):   error
+    action 'ELSE' (noprec):   error
+    action 'LET' (noprec):   shift 101
+    action 'IN' (noprec):   error
+    action 'EOF' (noprec):   error
+    action 'ID' (noprec):   shift 30
+    action 'STRINGLIT' (noprec):   shift 31
+    action 'CHARLIT' (noprec):   shift 29
+    action 'NUM' (noprec):   shift 28
+    action 'error' (noprec):   error
+    action '#' (noprec):   error
+    action '$$' (noprec):   error
+  immediate action: <none>  gotos:    goto Exp: 59
+state 119:  items:    FunArg -> 'ID' . 
   actions:    action 'BOOLVAL' (noprec):   reduce FunArg --> 'ID'
     action 'TIMES' (noprec):   reduce FunArg --> 'ID'
     action 'DIVIDE' (noprec):   reduce FunArg --> 'ID'
@@ -6026,7 +6178,7 @@ state 115:  items:    Exps -> Exp 'COMMA' Exps .
     action 'error' (noprec):   reduce FunArg --> 'ID'
     action '#' (noprec):   reduce FunArg --> 'ID'
     action '$$' (noprec):   reduce FunArg --> 'ID'
-  immediate action:   reduce FunArg --> 'ID'  gotos:state 117:  items:    FunArg -> 'FN' . Type 'LPAR' 'RPAR' 'ARROW' Exp
+  immediate action:   reduce FunArg --> 'ID'  gotos:state 120:  items:    FunArg -> 'FN' . Type 'LPAR' 'RPAR' 'ARROW' Exp
     FunArg -> 'FN' . Type 'LPAR' Params 'RPAR' 'ARROW' Exp
   actions:    action 'BOOLVAL' (noprec):   error
     action 'TIMES' (noprec):   error
@@ -6076,8 +6228,8 @@ state 115:  items:    Exps -> Exp 'COMMA' Exps .
     action 'error' (noprec):   error
     action '#' (noprec):   error
     action '$$' (noprec):   error
-  immediate action: <none>  gotos:    goto Type: 118
-state 118:  items:    FunArg -> 'FN' Type . 'LPAR' 'RPAR' 'ARROW' Exp
+  immediate action: <none>  gotos:    goto Type: 121
+state 121:  items:    FunArg -> 'FN' Type . 'LPAR' 'RPAR' 'ARROW' Exp
     FunArg -> 'FN' Type . 'LPAR' Params 'RPAR' 'ARROW' Exp
   actions:    action 'BOOLVAL' (noprec):   error
     action 'TIMES' (noprec):   error
@@ -6088,7 +6240,7 @@ state 118:  items:    FunArg -> 'FN' Type . 'LPAR' 'RPAR' 'ARROW' Exp
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
     action 'NOT' (noprec):   error
-    action 'LPAR' (noprec):   shift 119
+    action 'LPAR' (noprec):   shift 122
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
     action 'RBRACKET' (noprec):   error
@@ -6127,7 +6279,7 @@ state 118:  items:    FunArg -> 'FN' Type . 'LPAR' 'RPAR' 'ARROW' Exp
     action 'error' (noprec):   error
     action '#' (noprec):   error
     action '$$' (noprec):   error
-  immediate action: <none>  gotos:state 119:  items:    FunArg -> 'FN' Type 'LPAR' . 'RPAR' 'ARROW' Exp
+  immediate action: <none>  gotos:state 122:  items:    FunArg -> 'FN' Type 'LPAR' . 'RPAR' 'ARROW' Exp
     FunArg -> 'FN' Type 'LPAR' . Params 'RPAR' 'ARROW' Exp
   actions:    action 'BOOLVAL' (noprec):   error
     action 'TIMES' (noprec):   error
@@ -6139,7 +6291,7 @@ state 118:  items:    FunArg -> 'FN' Type . 'LPAR' 'RPAR' 'ARROW' Exp
     action 'FALSE' (noprec):   error
     action 'NOT' (noprec):   error
     action 'LPAR' (noprec):   error
-    action 'RPAR' (noprec):   shift 120
+    action 'RPAR' (noprec):   shift 123
     action 'LBRACKET' (noprec):   shift 20
     action 'RBRACKET' (noprec):   error
     action 'LCURLY' (noprec):   error
@@ -6178,156 +6330,8 @@ state 118:  items:    FunArg -> 'FN' Type . 'LPAR' 'RPAR' 'ARROW' Exp
     action '#' (noprec):   error
     action '$$' (noprec):   error
   immediate action: <none>  gotos:    goto Type: 23
-    goto Params: 122
-state 120:  items:    FunArg -> 'FN' Type 'LPAR' 'RPAR' . 'ARROW' Exp
-  actions:    action 'BOOLVAL' (noprec):   error
-    action 'TIMES' (noprec):   error
-    action 'DIVIDE' (noprec):   error
-    action 'AND' (noprec):   error
-    action 'OR' (noprec):   error
-    action 'NEG' (noprec):   error
-    action 'TRUE' (noprec):   error
-    action 'FALSE' (noprec):   error
-    action 'NOT' (noprec):   error
-    action 'LPAR' (noprec):   error
-    action 'RPAR' (noprec):   error
-    action 'LBRACKET' (noprec):   error
-    action 'RBRACKET' (noprec):   error
-    action 'LCURLY' (noprec):   error
-    action 'RCURLY' (noprec):   error
-    action 'FUN' (noprec):   error
-    action 'FN' (noprec):   error
-    action 'COMMA' (noprec):   error
-    action 'SEMICOLON' (noprec):   error
-    action 'READ' (noprec):   error
-    action 'WRITE' (noprec):   error
-    action 'DEQ' (noprec):   error
-    action 'LTH' (noprec):   error
-    action 'EQ' (noprec):   error
-    action 'OP' (noprec):   error
-    action 'MAP' (noprec):   error
-    action 'REDUCE' (noprec):   error
-    action 'IOTA' (noprec):   error
-    action 'ARROW' (noprec):   shift 121
-    action 'PLUS' (noprec):   error
-    action 'MINUS' (noprec):   error
-    action 'LESS' (noprec):   error
-    action 'INT' (noprec):   error
-    action 'CHAR' (noprec):   error
-    action 'BOOL' (noprec):   error
-    action 'IF' (noprec):   error
-    action 'THEN' (noprec):   error
-    action 'ELSE' (noprec):   error
-    action 'LET' (noprec):   error
-    action 'IN' (noprec):   error
-    action 'EOF' (noprec):   error
-    action 'ID' (noprec):   error
-    action 'STRINGLIT' (noprec):   error
-    action 'CHARLIT' (noprec):   error
-    action 'NUM' (noprec):   error
-    action 'error' (noprec):   error
-    action '#' (noprec):   error
-    action '$$' (noprec):   error
-  immediate action: <none>  gotos:state 121:  items:    FunArg -> 'FN' Type 'LPAR' 'RPAR' 'ARROW' . Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
-    action 'TIMES' (noprec):   error
-    action 'DIVIDE' (noprec):   error
-    action 'AND' (noprec):   error
-    action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
-    action 'TRUE' (noprec):   error
-    action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
-    action 'LPAR' (noprec):   shift 99
-    action 'RPAR' (noprec):   error
-    action 'LBRACKET' (noprec):   error
-    action 'RBRACKET' (noprec):   error
-    action 'LCURLY' (noprec):   shift 32
-    action 'RCURLY' (noprec):   error
-    action 'FUN' (noprec):   error
-    action 'FN' (noprec):   error
-    action 'COMMA' (noprec):   error
-    action 'SEMICOLON' (noprec):   error
-    action 'READ' (noprec):   shift 73
-    action 'WRITE' (noprec):   shift 77
-    action 'DEQ' (noprec):   error
-    action 'LTH' (noprec):   error
-    action 'EQ' (noprec):   error
-    action 'OP' (noprec):   error
-    action 'MAP' (noprec):   shift 83
-    action 'REDUCE' (noprec):   shift 88
-    action 'IOTA' (noprec):   shift 80
-    action 'ARROW' (noprec):   error
-    action 'PLUS' (noprec):   error
-    action 'MINUS' (noprec):   error
-    action 'LESS' (noprec):   error
-    action 'INT' (noprec):   error
-    action 'CHAR' (noprec):   error
-    action 'BOOL' (noprec):   error
-    action 'IF' (noprec):   shift 66
-    action 'THEN' (noprec):   error
-    action 'ELSE' (noprec):   error
-    action 'LET' (noprec):   shift 101
-    action 'IN' (noprec):   error
-    action 'EOF' (noprec):   error
-    action 'ID' (noprec):   shift 30
-    action 'STRINGLIT' (noprec):   shift 31
-    action 'CHARLIT' (noprec):   shift 29
-    action 'NUM' (noprec):   shift 28
-    action 'error' (noprec):   error
-    action '#' (noprec):   error
-    action '$$' (noprec):   error
-  immediate action: <none>  gotos:    goto Exp: 60
-state 122:  items:    FunArg -> 'FN' Type 'LPAR' Params . 'RPAR' 'ARROW' Exp
-  actions:    action 'BOOLVAL' (noprec):   error
-    action 'TIMES' (noprec):   error
-    action 'DIVIDE' (noprec):   error
-    action 'AND' (noprec):   error
-    action 'OR' (noprec):   error
-    action 'NEG' (noprec):   error
-    action 'TRUE' (noprec):   error
-    action 'FALSE' (noprec):   error
-    action 'NOT' (noprec):   error
-    action 'LPAR' (noprec):   error
-    action 'RPAR' (noprec):   shift 123
-    action 'LBRACKET' (noprec):   error
-    action 'RBRACKET' (noprec):   error
-    action 'LCURLY' (noprec):   error
-    action 'RCURLY' (noprec):   error
-    action 'FUN' (noprec):   error
-    action 'FN' (noprec):   error
-    action 'COMMA' (noprec):   error
-    action 'SEMICOLON' (noprec):   error
-    action 'READ' (noprec):   error
-    action 'WRITE' (noprec):   error
-    action 'DEQ' (noprec):   error
-    action 'LTH' (noprec):   error
-    action 'EQ' (noprec):   error
-    action 'OP' (noprec):   error
-    action 'MAP' (noprec):   error
-    action 'REDUCE' (noprec):   error
-    action 'IOTA' (noprec):   error
-    action 'ARROW' (noprec):   error
-    action 'PLUS' (noprec):   error
-    action 'MINUS' (noprec):   error
-    action 'LESS' (noprec):   error
-    action 'INT' (noprec):   error
-    action 'CHAR' (noprec):   error
-    action 'BOOL' (noprec):   error
-    action 'IF' (noprec):   error
-    action 'THEN' (noprec):   error
-    action 'ELSE' (noprec):   error
-    action 'LET' (noprec):   error
-    action 'IN' (noprec):   error
-    action 'EOF' (noprec):   error
-    action 'ID' (noprec):   error
-    action 'STRINGLIT' (noprec):   error
-    action 'CHARLIT' (noprec):   error
-    action 'NUM' (noprec):   error
-    action 'error' (noprec):   error
-    action '#' (noprec):   error
-    action '$$' (noprec):   error
-  immediate action: <none>  gotos:state 123:  items:    FunArg -> 'FN' Type 'LPAR' Params 'RPAR' . 'ARROW' Exp
+    goto Params: 125
+state 123:  items:    FunArg -> 'FN' Type 'LPAR' 'RPAR' . 'ARROW' Exp
   actions:    action 'BOOLVAL' (noprec):   error
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
@@ -6376,16 +6380,164 @@ state 122:  items:    FunArg -> 'FN' Type 'LPAR' Params . 'RPAR' 'ARROW' Exp
     action 'error' (noprec):   error
     action '#' (noprec):   error
     action '$$' (noprec):   error
-  immediate action: <none>  gotos:state 124:  items:    FunArg -> 'FN' Type 'LPAR' Params 'RPAR' 'ARROW' . Exp
-  actions:    action 'BOOLVAL' (noprec):   shift 113
+  immediate action: <none>  gotos:state 124:  items:    FunArg -> 'FN' Type 'LPAR' 'RPAR' 'ARROW' . Exp
+  actions:    action 'BOOLVAL' (noprec):   shift 111
     action 'TIMES' (noprec):   error
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 112
+    action 'NEG' (explicit left 9999):   shift 110
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 111
+    action 'NOT' (explicit left 9995):   shift 109
+    action 'LPAR' (noprec):   shift 99
+    action 'RPAR' (noprec):   error
+    action 'LBRACKET' (noprec):   error
+    action 'RBRACKET' (noprec):   error
+    action 'LCURLY' (noprec):   shift 32
+    action 'RCURLY' (noprec):   error
+    action 'FUN' (noprec):   error
+    action 'FN' (noprec):   error
+    action 'COMMA' (noprec):   error
+    action 'SEMICOLON' (noprec):   error
+    action 'READ' (noprec):   shift 73
+    action 'WRITE' (noprec):   shift 77
+    action 'DEQ' (noprec):   error
+    action 'LTH' (noprec):   error
+    action 'EQ' (noprec):   error
+    action 'OP' (noprec):   error
+    action 'MAP' (noprec):   shift 83
+    action 'REDUCE' (noprec):   shift 88
+    action 'IOTA' (noprec):   shift 80
+    action 'ARROW' (noprec):   error
+    action 'PLUS' (noprec):   error
+    action 'MINUS' (noprec):   error
+    action 'LESS' (noprec):   error
+    action 'INT' (noprec):   error
+    action 'CHAR' (noprec):   error
+    action 'BOOL' (noprec):   error
+    action 'IF' (noprec):   shift 66
+    action 'THEN' (noprec):   error
+    action 'ELSE' (noprec):   error
+    action 'LET' (noprec):   shift 101
+    action 'IN' (noprec):   error
+    action 'EOF' (noprec):   error
+    action 'ID' (noprec):   shift 30
+    action 'STRINGLIT' (noprec):   shift 31
+    action 'CHARLIT' (noprec):   shift 29
+    action 'NUM' (noprec):   shift 28
+    action 'error' (noprec):   error
+    action '#' (noprec):   error
+    action '$$' (noprec):   error
+  immediate action: <none>  gotos:    goto Exp: 60
+state 125:  items:    FunArg -> 'FN' Type 'LPAR' Params . 'RPAR' 'ARROW' Exp
+  actions:    action 'BOOLVAL' (noprec):   error
+    action 'TIMES' (noprec):   error
+    action 'DIVIDE' (noprec):   error
+    action 'AND' (noprec):   error
+    action 'OR' (noprec):   error
+    action 'NEG' (noprec):   error
+    action 'TRUE' (noprec):   error
+    action 'FALSE' (noprec):   error
+    action 'NOT' (noprec):   error
+    action 'LPAR' (noprec):   error
+    action 'RPAR' (noprec):   shift 126
+    action 'LBRACKET' (noprec):   error
+    action 'RBRACKET' (noprec):   error
+    action 'LCURLY' (noprec):   error
+    action 'RCURLY' (noprec):   error
+    action 'FUN' (noprec):   error
+    action 'FN' (noprec):   error
+    action 'COMMA' (noprec):   error
+    action 'SEMICOLON' (noprec):   error
+    action 'READ' (noprec):   error
+    action 'WRITE' (noprec):   error
+    action 'DEQ' (noprec):   error
+    action 'LTH' (noprec):   error
+    action 'EQ' (noprec):   error
+    action 'OP' (noprec):   error
+    action 'MAP' (noprec):   error
+    action 'REDUCE' (noprec):   error
+    action 'IOTA' (noprec):   error
+    action 'ARROW' (noprec):   error
+    action 'PLUS' (noprec):   error
+    action 'MINUS' (noprec):   error
+    action 'LESS' (noprec):   error
+    action 'INT' (noprec):   error
+    action 'CHAR' (noprec):   error
+    action 'BOOL' (noprec):   error
+    action 'IF' (noprec):   error
+    action 'THEN' (noprec):   error
+    action 'ELSE' (noprec):   error
+    action 'LET' (noprec):   error
+    action 'IN' (noprec):   error
+    action 'EOF' (noprec):   error
+    action 'ID' (noprec):   error
+    action 'STRINGLIT' (noprec):   error
+    action 'CHARLIT' (noprec):   error
+    action 'NUM' (noprec):   error
+    action 'error' (noprec):   error
+    action '#' (noprec):   error
+    action '$$' (noprec):   error
+  immediate action: <none>  gotos:state 126:  items:    FunArg -> 'FN' Type 'LPAR' Params 'RPAR' . 'ARROW' Exp
+  actions:    action 'BOOLVAL' (noprec):   error
+    action 'TIMES' (noprec):   error
+    action 'DIVIDE' (noprec):   error
+    action 'AND' (noprec):   error
+    action 'OR' (noprec):   error
+    action 'NEG' (noprec):   error
+    action 'TRUE' (noprec):   error
+    action 'FALSE' (noprec):   error
+    action 'NOT' (noprec):   error
+    action 'LPAR' (noprec):   error
+    action 'RPAR' (noprec):   error
+    action 'LBRACKET' (noprec):   error
+    action 'RBRACKET' (noprec):   error
+    action 'LCURLY' (noprec):   error
+    action 'RCURLY' (noprec):   error
+    action 'FUN' (noprec):   error
+    action 'FN' (noprec):   error
+    action 'COMMA' (noprec):   error
+    action 'SEMICOLON' (noprec):   error
+    action 'READ' (noprec):   error
+    action 'WRITE' (noprec):   error
+    action 'DEQ' (noprec):   error
+    action 'LTH' (noprec):   error
+    action 'EQ' (noprec):   error
+    action 'OP' (noprec):   error
+    action 'MAP' (noprec):   error
+    action 'REDUCE' (noprec):   error
+    action 'IOTA' (noprec):   error
+    action 'ARROW' (noprec):   shift 127
+    action 'PLUS' (noprec):   error
+    action 'MINUS' (noprec):   error
+    action 'LESS' (noprec):   error
+    action 'INT' (noprec):   error
+    action 'CHAR' (noprec):   error
+    action 'BOOL' (noprec):   error
+    action 'IF' (noprec):   error
+    action 'THEN' (noprec):   error
+    action 'ELSE' (noprec):   error
+    action 'LET' (noprec):   error
+    action 'IN' (noprec):   error
+    action 'EOF' (noprec):   error
+    action 'ID' (noprec):   error
+    action 'STRINGLIT' (noprec):   error
+    action 'CHARLIT' (noprec):   error
+    action 'NUM' (noprec):   error
+    action 'error' (noprec):   error
+    action '#' (noprec):   error
+    action '$$' (noprec):   error
+  immediate action: <none>  gotos:state 127:  items:    FunArg -> 'FN' Type 'LPAR' Params 'RPAR' 'ARROW' . Exp
+  actions:    action 'BOOLVAL' (noprec):   shift 111
+    action 'TIMES' (noprec):   error
+    action 'DIVIDE' (noprec):   error
+    action 'AND' (noprec):   error
+    action 'OR' (noprec):   error
+    action 'NEG' (explicit left 9999):   shift 110
+    action 'TRUE' (noprec):   error
+    action 'FALSE' (noprec):   error
+    action 'NOT' (explicit left 9995):   shift 109
     action 'LPAR' (noprec):   shift 99
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
