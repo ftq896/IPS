@@ -2,6 +2,9 @@
 module Parser
 type token = 
   | BOOLVAL of (bool * Position)
+  | REPLICATE of (Position)
+  | FILTER of (Position)
+  | SCAN of (Position)
   | TIMES of (Position)
   | DIVIDE of (Position)
   | AND of (Position)
@@ -48,6 +51,9 @@ type token =
   | NUM of (int * Position)
 type tokenId = 
     | TOKEN_BOOLVAL
+    | TOKEN_REPLICATE
+    | TOKEN_FILTER
+    | TOKEN_SCAN
     | TOKEN_TIMES
     | TOKEN_DIVIDE
     | TOKEN_AND

@@ -283,8 +283,20 @@ let rec evalExp (e : UntypedExp, vtab : VarTable, ftab : FunTable) : Value =
          the value of `a`; otherwise raise an error (containing
          a meaningful message).
   *)
-  | Replicate (_, _, _, _) ->
-        failwith "Unimplemented interpretation of replicate"
+  | Replicate (n, a, _, pos) ->
+        let ne = evalExp(n, vtab, ftab)
+        match ne with
+        | IntVal x ->
+          if x < 0 then 
+            raise (MyError("1st argument of \"replicate\" must be equal to or greater than 0", (expPos n)))
+          else
+            let el = evalExp(a, vtab, ftab)
+            match el with
+            | IntVal _ -> ArrayVal (List.replicate x el, Int)
+            | CharVal _ -> ArrayVal (List.replicate x el, Char)
+            | BoolVal _ -> ArrayVal (List.replicate x el, Bool)
+            | ArrayVal(_, tp) -> ArrayVal (List.replicate x el, Array tp)
+        | _ -> reportWrongType "1st argument of \"replicate\"" Int ne (expPos n)
 
   (* TODO project task 2: `filter(p, arr)`
        pattern match the implementation of map:
