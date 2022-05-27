@@ -632,8 +632,22 @@ let rec compileExp  (e      : TypedExp)
         If `n` is less than `0` then remember to terminate the program with
         an error -- see implementation of `iota`.
   *)
-  | Replicate (_, _, _, _) ->
+  | Replicate (n, a, tp, pos) ->
       failwith "Unimplemented code generation of replicate"
+      
+      (*
+      if (n < 0) {
+        crashandburn("n is stupid");
+      } 
+
+      char* res = ( char* )malloc(n);
+
+      int i = 0;
+      while (i < n) {
+        res[i] = a
+        i = i + 1
+      }
+      *)
 
   (* TODO project task 2: see also the comment to replicate.
      (a) `filter(f, arr)`:  has some similarity with the implementation of map.

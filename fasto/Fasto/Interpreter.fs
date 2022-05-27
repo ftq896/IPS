@@ -289,13 +289,13 @@ let rec evalExp (e : UntypedExp, vtab : VarTable, ftab : FunTable) : Value =
         | IntVal x ->
           if x < 0 then 
             raise (MyError("1st argument of \"replicate\" must be equal to or greater than 0", (expPos n)))
-          else
-            let el = evalExp(a, vtab, ftab)
-            match el with
-            | IntVal _ -> ArrayVal (List.replicate x el, Int)
-            | CharVal _ -> ArrayVal (List.replicate x el, Char)
-            | BoolVal _ -> ArrayVal (List.replicate x el, Bool)
-            | ArrayVal(_, tp) -> ArrayVal (List.replicate x el, Array tp)
+
+          let el = evalExp(a, vtab, ftab)
+          match el with
+          | IntVal _ -> ArrayVal (List.replicate x el, Int)
+          | CharVal _ -> ArrayVal (List.replicate x el, Char)
+          | BoolVal _ -> ArrayVal (List.replicate x el, Bool)
+          | ArrayVal(_, tp) -> ArrayVal (List.replicate x el, Array tp)
         | _ -> reportWrongType "1st argument of \"replicate\"" Int ne (expPos n)
 
   (* TODO project task 2: `filter(p, arr)`
