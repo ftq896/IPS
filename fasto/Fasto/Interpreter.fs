@@ -306,16 +306,38 @@ let rec evalExp (e : UntypedExp, vtab : VarTable, ftab : FunTable) : Value =
          under predicate `p`, i.e., `p(a) = true`;
        - create an `ArrayVal` from the (list) result of the previous step.
   *)
-  | Filter (_, _, _, _) ->
-        failwith "Unimplemented interpretation of filter"
+  | Filter (farg, a_exp, _, pos) ->
+        let farg_ret_type = rtpFunArg farg ftab pos
+        match farg_ret_type with
+        | Bool -> 
+          let arr = evalExp (a_exp, vtab, ftab)
+          match arr with
+          | ArrayVal (a, tp) ->
+            let res = List.filter (fun x -> 
+              let funRes = evalFunArg (farg, vtab, ftab, pos, [x])
+              match funRes with
+              | BoolVal b -> b
+              | _ -> raise (MyError("Bad return type of 1st argument of filter, must be " 
+                            + ppType Bool + " but got: " + ppType farg_ret_type, pos))
+                            ) a
+            ArrayVal (res, Bool)
+          | _ -> reportNonArray "2nd argument of \"filter\"" arr (expPos a_exp) 
+        | _ -> raise (MyError("Bad return type of 1st argument of filter, must be " 
+                      + ppType Bool + " but got: " + ppType farg_ret_type, pos))
 
   (* TODO project task 2: `scan(f, ne, arr)`
      Implementation similar to reduce, except that it produces an array
      of the same type and length to the input array `arr`.
   *)
-  | Scan (_, _, _, _, _) ->
-        failwith "Unimplemented interpretation of scan"
-
+  | Scan (farg, ne, a_exp, tp, pos) ->
+        let farg_ret_type = rtpFunArg farg ftab pos
+        let arr  = evalExp(a_exp, vtab, ftab)
+        let nel  = evalExp(ne, vtab, ftab)
+        match arr with
+          | ArrayVal (lst,tp1) ->
+              ArrayVal (List.tail (List.scan (fun acc x -> evalFunArg (farg, vtab, ftab, pos, [acc;x])) nel lst), tp1)
+          | otherwise -> reportNonArray "3rd argument of \"reduce\"" arr pos
+  
   | Read (t,p) ->
         let str = Console.ReadLine()
         match t with

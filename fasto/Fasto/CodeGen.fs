@@ -633,19 +633,6 @@ let rec compileExp  (e      : TypedExp)
         an error -- see implementation of `iota`.
   *)
   | Replicate (n_exp, a, tp, (line, _)) ->
-      (*
-      if (n < 0) {
-        crashandburn("n is stupid");
-      } 
-
-      char* res = ( char* )malloc(n);
-
-      int i = 0;
-      while (i < n) {
-        res[i] = a
-        i = i + 1
-      }
-      *)
       (* this code is a modification of the implementation of iota *)
       let size_reg = newReg "size_reg"
       let n_code = compileExp n_exp vtable size_reg
@@ -707,8 +694,61 @@ let rec compileExp  (e      : TypedExp)
          counter computed in step (c). You do this of course with a
          `Mips.SW(counter_reg, place, 0)` instruction.
   *)
-  | Filter (_, _, _, _) ->
-      failwith "Unimplemented code generation of filter"
+  | Filter (farg, a_exp, tp, pos) ->
+      let size_reg = newReg "size_reg" 
+      let arr_reg  = newReg "arr_reg"  
+      let elem_reg = newReg "elem_reg" 
+      let res_reg = newReg "res_reg"
+      let arr_code = compileExp a_exp vtable arr_reg
+
+      let get_size = [ Mips.LW (size_reg, arr_reg, 0) ]
+
+      let addr_reg = newReg "addr_reg" 
+      let i_reg = newReg "i_reg"
+      let counter_reg = newReg "counter_reg"
+      let init_regs = [ Mips.ADDI (addr_reg, place, 4)
+                      ; Mips.MOVE (i_reg, RZ)
+                      ; Mips.MOVE (counter_reg, RZ)
+                      ; Mips.ADDI (elem_reg, arr_reg, 4)
+                      ]
+      let loop_beg = newLab "loop_beg"
+      let loop_end = newLab "loop_end"
+      let skip_lab = newLab "skip_lab"
+
+      let tmp_reg = newReg "tmp_reg"
+      let loop_header = [ Mips.LABEL (loop_beg)
+                        ; Mips.SUB (tmp_reg, i_reg, size_reg)
+                        ; Mips.BGEZ (tmp_reg, loop_end) ]
+
+      let elem_size = getElemSize tp
+      let loop_filter =
+             [ mipsLoad elem_size (tmp_reg, elem_reg, 0)
+             ; Mips.ADDI(elem_reg, elem_reg, elemSizeToInt elem_size)
+             ]
+             @ applyFunArg(farg, [tmp_reg], vtable, res_reg, pos)
+             @ 
+             [ Mips.BEQ (res_reg, RZ, skip_lab)
+             ; mipsStore elem_size (tmp_reg, addr_reg, 0)
+             ; Mips.ADDI (addr_reg, addr_reg, elemSizeToInt elem_size)
+             ; Mips.ADDI (counter_reg, counter_reg, 1)
+             ; Mips.LABEL skip_lab
+             ]
+
+      let loop_footer =
+              [ Mips.ADDI (i_reg, i_reg, 1)
+              ; Mips.J loop_beg
+              ; Mips.LABEL loop_end
+              ]
+      
+      let set_size = [ Mips.SW (counter_reg, place, 0)]
+      arr_code
+       @ get_size
+       @ dynalloc (size_reg, place, tp)
+       @ init_regs
+       @ loop_header
+       @ loop_filter
+       @ loop_footer
+       @ set_size
 
   (* TODO project task 2: see also the comment to replicate.
      `scan(f, ne, arr)`: you can inspire yourself from the implementation of
@@ -717,8 +757,45 @@ let rec compileExp  (e      : TypedExp)
         the current location of the result iterator at every iteration of
         the loop.
   *)
-  | Scan (_, _, _, _, _) ->
-      failwith "Unimplemented code generation of scan"
+  | Scan (farg, ne, a_exp, tp, pos) ->
+     failwith ("scan not implemented")
+     (* let arr_reg  = newReg "arr_reg"   (* address of array *)
+      let size_reg = newReg "size_reg"  (* size of input array *)
+      let i_reg    = newReg "ind_var"   (* loop counter *)
+      let tmp_reg  = newReg "tmp_reg"   (* several purposes *)
+      let loop_beg = newLab "loop_beg"
+      let loop_end = newLab "loop_end"
+
+      let arr_code = compileExp arr_exp vtable arr_reg
+      let header1 = [ Mips.LW(size_reg, arr_reg, 0) ]
+
+      (* Compile initial value into place (will be updated below) *)
+      let acc_code = compileExp acc_exp vtable place
+
+      (* Set arr_reg to address of first element instead. *)
+      (* Set i_reg to 0. While i < size_reg, loop. *)
+      let loop_code =
+              [ Mips.ADDI(arr_reg, arr_reg, 4)
+              ; Mips.MOVE(i_reg, RZ)
+              ; Mips.LABEL(loop_beg)
+              ; Mips.SUB(tmp_reg, i_reg, size_reg)
+              ; Mips.BGEZ(tmp_reg, loop_end)
+              ]
+      (* Load arr[i] into tmp_reg *)
+      let elem_size = getElemSize tp
+      let load_code =
+        [ mipsLoad elem_size (tmp_reg, arr_reg, 0)
+        ; Mips.ADDI (arr_reg, arr_reg, elemSizeToInt elem_size)
+        ]
+      (* place := binop(place, tmp_reg) *)
+      let apply_code =
+            applyFunArg(binop, [place; tmp_reg], vtable, place, pos)
+
+      arr_code @ header1 @ acc_code @ loop_code @ load_code @ apply_code @
+         [ Mips.ADDI(i_reg, i_reg, 1)
+         ; Mips.J loop_beg
+         ; Mips.LABEL loop_end
+         ] *)
 
 and applyFunArg ( ff     : TypedFunArg
                 , args   : Mips.reg list
