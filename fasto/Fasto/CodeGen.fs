@@ -632,9 +632,7 @@ let rec compileExp  (e      : TypedExp)
         If `n` is less than `0` then remember to terminate the program with
         an error -- see implementation of `iota`.
   *)
-  | Replicate (n, a, tp, pos) ->
-      failwith "Unimplemented code generation of replicate"
-      
+  | Replicate (n_exp, a, tp, (line, _)) ->
       (*
       if (n < 0) {
         crashandburn("n is stupid");
@@ -648,6 +646,51 @@ let rec compileExp  (e      : TypedExp)
         i = i + 1
       }
       *)
+      (* this code is a modification of the implementation of iota *)
+      let size_reg = newReg "size_reg"
+      let n_code = compileExp n_exp vtable size_reg
+
+      let safe_lab = newLab "safe_lab"
+      let checksize = [ Mips.BGEZ (size_reg, safe_lab)
+                      ; Mips.LI (RN5, line)
+                      ; Mips.LA (RN6, "_Msg_IllegalArraySize_")
+                      ; Mips.J "_RuntimeError_"
+                      ; Mips.LABEL (safe_lab)
+                      ]
+
+      let a_reg = newReg "a_reg"
+      let a_code = compileExp a vtable a_reg
+
+      let el_size = getElemSize tp (* get element size *)
+      let el_size_int = elemSizeToInt el_size
+
+      let addr_reg = newReg "addr_reg"
+      let i_reg = newReg "i_reg"
+      let init_regs = [ Mips.ADDI (addr_reg, place, 4)
+                      ; Mips.MOVE (i_reg, RZ) ]
+
+      let loop_beg = newLab "loop_beg"
+      let loop_end = newLab "loop_end"
+      let tmp_reg = newReg "tmp_reg"
+      let loop_header = [ Mips.LABEL (loop_beg)
+                        ; Mips.SUB (tmp_reg, i_reg, size_reg)
+                        ; Mips.BGEZ (tmp_reg, loop_end)
+                        ]
+
+      let loop_replicate = [ mipsStore el_size (a_reg, addr_reg, 0) ] (* stores depending on element size *)
+      let loop_footer = [ Mips.ADDI (addr_reg, addr_reg, el_size_int) (* increments address with element size (int) *)
+                        ; Mips.ADDI (i_reg, i_reg, 1)
+                        ; Mips.J loop_beg
+                        ; Mips.LABEL loop_end
+                        ]
+      n_code
+       @ checksize
+       @ a_code
+       @ dynalloc (size_reg, place, tp)
+       @ init_regs
+       @ loop_header
+       @ loop_replicate
+       @ loop_footer
 
   (* TODO project task 2: see also the comment to replicate.
      (a) `filter(f, arr)`:  has some similarity with the implementation of map.
