@@ -28,13 +28,26 @@ let rec copyConstPropFoldExp (vtable : VarTable)
                 exists and if so, it should replace the current expression
                 with the variable or constant to be propagated.
             *)
-            failwith "Unimplemented copyConstPropFold for Var"
+            let res = SymTab.lookup name vtable
+            match res with
+            | Some p -> 
+                match p with 
+                | ConstProp v -> Constant (v, pos)
+                | VarProp s -> Var (s, pos)
+            | None -> Var (name, pos)
         | Index (name, e, t, pos) ->
             (* TODO project task 3:
                 Should probably do the same as the `Var` case, for
                 the array name, and optimize the index expression `e` as well.
             *)
-            failwith "Unimplemented copyConstPropFold for Index"
+            let name' = 
+                let res = copyConstPropFoldExp vtable (Var (name, pos))
+                match res with
+                | Var (s, pos) -> s 
+                | Constant (v, pos) -> name
+
+            let e' = copyConstPropFoldExp vtable e
+            Index (name', e', t, pos)
         | Let (Dec (name, e, decpos), body, pos) ->
             let e' = copyConstPropFoldExp vtable e
             match e' with
