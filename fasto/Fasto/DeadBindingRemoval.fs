@@ -68,7 +68,8 @@ let rec removeDeadBindingsInExp (e : TypedExp) : (bool * DBRtab * TypedExp) =
                         you need to record it in a new symbol table.
                   - 3rd element of the tuple: should be the optimised expression.
             *)
-            failwith "Unimplemented removeDeadBindingsInExp for Var"
+            let vtab = SymTab.bind name () (SymTab.empty())
+            (false, vtab, Var (name, pos))
         | Plus (x, y, pos) ->
             let (xios, xuses, x') = removeDeadBindingsInExp x
             let (yios, yuses, y') = removeDeadBindingsInExp y
@@ -118,7 +119,9 @@ let rec removeDeadBindingsInExp (e : TypedExp) : (bool * DBRtab * TypedExp) =
                         expression `e` and to propagate its results (in addition
                         to recording the use of `name`).
             *)
-            failwith "Unimplemented removeDeadBindingsInExp for Index"
+            let (io, use_table, e') = removeDeadBindingsInExp e
+            let res_table = SymTab.bind name () use_table
+            (io, res_table, Index (name, e', t, pos))
 
         | Let (Dec (name, e, decpos), body, pos) ->
             (* Task 3, Hints for the `Let` case:
@@ -144,7 +147,21 @@ let rec removeDeadBindingsInExp (e : TypedExp) : (bool * DBRtab * TypedExp) =
                     Let-expression.
 
             *)
-            failwith "Unimplemented removeDeadBindingsInExp for Let"
+            let (e_io, e_table, e') = removeDeadBindingsInExp e
+            let (body_io, body_table, body') = removeDeadBindingsInExp body
+            let res_body_table = SymTab.remove name body_table
+
+            let res_io = e_io || body_io
+            let (res_table, res_exp) = 
+                if e_io || SymTab.lookup name body_table <> None then
+                    (SymTab.combine e_table res_body_table,
+                    Let (Dec (name, e', decpos), body', pos))
+                else
+                    (res_body_table,
+                    body')
+
+            (res_io, res_table, res_exp)
+
         | Iota (e, pos) ->
             let (io, uses, e') = removeDeadBindingsInExp e
             (io,
