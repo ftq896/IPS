@@ -646,10 +646,10 @@ state 10:  items:    Fun -> Type 'ID' 'LPAR' Params . 'RPAR' 'EQ' Exp
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -811,10 +811,10 @@ state 13:  items:    Fun -> Type 'ID' 'LPAR' Params 'RPAR' 'EQ' Exp .
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -1712,10 +1712,10 @@ state 26:  items:    Params -> Type 'ID' 'COMMA' Params .
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -3070,57 +3070,57 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
     Exp -> 'NOT' Exp . 
-  actions:    action 'BOOLVAL' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'REPLICATE' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'FILTER' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'SCAN' (explicit left 9995):   reduce Exp --> 'NOT' Exp
+  actions:    action 'BOOLVAL' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'REPLICATE' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'FILTER' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'SCAN' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
     action 'TIMES' (explicit left 9998):   shift 110
     action 'DIVIDE' (explicit left 9998):   shift 111
-    action 'AND' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'OR' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'NEG' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'TRUE' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'FALSE' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'NOT' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'LPAR' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'RPAR' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'LBRACKET' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'RBRACKET' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'LCURLY' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'RCURLY' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'FUN' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'FN' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'COMMA' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'SEMICOLON' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'READ' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'WRITE' (explicit left 9995):   reduce Exp --> 'NOT' Exp
+    action 'AND' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'OR' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'NEG' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'TRUE' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'FALSE' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'NOT' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'LPAR' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'RPAR' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'LBRACKET' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'RBRACKET' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'LCURLY' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'RCURLY' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'FUN' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'FN' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'COMMA' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'SEMICOLON' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'READ' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'WRITE' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
     action 'DEQ' (explicit left 9996):   shift 69
     action 'LTH' (explicit left 9996):   shift 70
-    action 'EQ' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'OP' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'MAP' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'REDUCE' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'IOTA' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'ARROW' (explicit left 9995):   reduce Exp --> 'NOT' Exp
+    action 'EQ' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'OP' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'MAP' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'REDUCE' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'IOTA' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'ARROW' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
     action 'PLUS' (explicit left 9997):   shift 67
     action 'MINUS' (explicit left 9997):   shift 68
-    action 'LESS' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'INT' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'CHAR' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'BOOL' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'IF' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'THEN' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'ELSE' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'LET' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'IN' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'EOF' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'ID' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'STRINGLIT' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'CHARLIT' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'NUM' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action 'error' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action '#' (explicit left 9995):   reduce Exp --> 'NOT' Exp
-    action '$$' (explicit left 9995):   reduce Exp --> 'NOT' Exp
+    action 'LESS' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'INT' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'CHAR' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'BOOL' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'IF' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'THEN' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'ELSE' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'LET' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'IN' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'EOF' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'ID' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'STRINGLIT' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'CHARLIT' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'NUM' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action 'error' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action '#' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
+    action '$$' (explicit nonassoc 9995):   reduce Exp --> 'NOT' Exp
   immediate action: <none>  gotos:state 56:  items:    Exp -> Exp . 'PLUS' Exp
     Exp -> Exp . 'MINUS' Exp
     Exp -> Exp . 'DEQ' Exp
@@ -3130,57 +3130,57 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     Exp -> Exp . 'AND' Exp
     Exp -> Exp . 'OR' Exp
     Exp -> 'NEG' Exp . 
-  actions:    action 'BOOLVAL' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'REPLICATE' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'FILTER' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'SCAN' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'TIMES' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'DIVIDE' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'AND' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'OR' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'NEG' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'TRUE' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'FALSE' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'NOT' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'LPAR' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'RPAR' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'LBRACKET' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'RBRACKET' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'LCURLY' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'RCURLY' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'FUN' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'FN' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'COMMA' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'SEMICOLON' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'READ' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'WRITE' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'DEQ' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'LTH' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'EQ' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'OP' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'MAP' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'REDUCE' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'IOTA' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'ARROW' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'PLUS' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'MINUS' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'LESS' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'INT' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'CHAR' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'BOOL' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'IF' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'THEN' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'ELSE' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'LET' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'IN' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'EOF' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'ID' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'STRINGLIT' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'CHARLIT' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'NUM' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action 'error' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action '#' (explicit left 9999):   reduce Exp --> 'NEG' Exp
-    action '$$' (explicit left 9999):   reduce Exp --> 'NEG' Exp
+  actions:    action 'BOOLVAL' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'REPLICATE' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'FILTER' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'SCAN' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'TIMES' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'DIVIDE' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'AND' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'OR' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'NEG' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'TRUE' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'FALSE' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'NOT' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'LPAR' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'RPAR' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'LBRACKET' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'RBRACKET' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'LCURLY' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'RCURLY' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'FUN' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'FN' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'COMMA' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'SEMICOLON' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'READ' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'WRITE' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'DEQ' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'LTH' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'EQ' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'OP' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'MAP' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'REDUCE' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'IOTA' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'ARROW' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'PLUS' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'MINUS' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'LESS' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'INT' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'CHAR' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'BOOL' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'IF' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'THEN' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'ELSE' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'LET' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'IN' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'EOF' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'ID' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'STRINGLIT' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'CHARLIT' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'NUM' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action 'error' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action '#' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
+    action '$$' (explicit nonassoc 9999):   reduce Exp --> 'NEG' Exp
   immediate action: <none>  gotos:state 57:  items:    Exp -> Exp . 'PLUS' Exp
     Exp -> Exp . 'MINUS' Exp
     Exp -> Exp . 'DEQ' Exp
@@ -3792,10 +3792,10 @@ state 33:  items:    Exp -> 'LCURLY' Exps . 'RCURLY'
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -3845,10 +3845,10 @@ state 68:  items:    Exp -> Exp 'MINUS' . Exp
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -3898,10 +3898,10 @@ state 69:  items:    Exp -> Exp 'DEQ' . Exp
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -3951,10 +3951,10 @@ state 70:  items:    Exp -> Exp 'LTH' . Exp
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -4004,10 +4004,10 @@ state 71:  items:    Exp -> 'IF' . Exp 'THEN' Exp 'ELSE' Exp
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -4057,10 +4057,10 @@ state 72:  items:    Exp -> 'IF' Exp 'THEN' . Exp 'ELSE' Exp
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -4110,10 +4110,10 @@ state 73:  items:    Exp -> 'IF' Exp 'THEN' Exp 'ELSE' . Exp
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -4164,10 +4164,10 @@ state 74:  items:    Exp -> 'ID' 'LPAR' . Exps 'RPAR'
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   shift 77
     action 'LBRACKET' (noprec):   error
@@ -4635,10 +4635,10 @@ state 80:  items:    Exp -> 'READ' 'LPAR' Type . 'RPAR'
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -4792,10 +4792,10 @@ state 84:  items:    Exp -> 'WRITE' 'LPAR' Exp 'RPAR' .
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -5054,10 +5054,10 @@ state 90:  items:    Exp -> 'MAP' 'LPAR' FunArg . 'COMMA' Exp 'RPAR'
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -5318,10 +5318,10 @@ state 95:  items:    Exp -> 'REDUCE' 'LPAR' FunArg . 'COMMA' Exp 'COMMA' Exp 'RP
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -5371,10 +5371,10 @@ state 97:  items:    Exp -> 'REDUCE' 'LPAR' FunArg 'COMMA' Exp 'COMMA' . Exp 'RP
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -5581,10 +5581,10 @@ state 100:  items:    Exp -> 'REDUCE' 'LPAR' 'OP' BinOp . 'COMMA' Exp 'COMMA' Ex
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -5634,10 +5634,10 @@ state 102:  items:    Exp -> 'REDUCE' 'LPAR' 'OP' BinOp 'COMMA' Exp 'COMMA' . Ex
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -5739,10 +5739,10 @@ state 103:  items:    Exp -> 'REDUCE' 'LPAR' 'OP' BinOp 'COMMA' Exp 'COMMA' Exp 
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -5949,10 +5949,10 @@ state 107:  items:    Exp -> 'LET' LetExp .
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -6054,10 +6054,10 @@ state 109:  items:    Exp -> 'ID' 'LBRACKET' Exp 'RBRACKET' .
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -6107,10 +6107,10 @@ state 111:  items:    Exp -> Exp 'DIVIDE' . Exp
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -6160,10 +6160,10 @@ state 112:  items:    Exp -> Exp 'AND' . Exp
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -6213,10 +6213,10 @@ state 113:  items:    Exp -> Exp 'OR' . Exp
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -6266,10 +6266,10 @@ state 114:  items:    Exp -> 'NOT' . Exp
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -6319,10 +6319,10 @@ state 115:  items:    Exp -> 'NEG' . Exp
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -6476,10 +6476,10 @@ state 116:  items:    Exp -> 'BOOLVAL' .
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -6529,10 +6529,10 @@ state 119:  items:    Exp -> 'REPLICATE' 'LPAR' Exp 'COMMA' . Exp 'RPAR'
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -6791,10 +6791,10 @@ state 123:  items:    Exp -> 'FILTER' 'LPAR' FunArg . 'COMMA' Exp 'RPAR'
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -7053,10 +7053,10 @@ state 128:  items:    Exp -> 'SCAN' 'LPAR' FunArg . 'COMMA' Exp 'COMMA' Exp 'RPA
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -7106,10 +7106,10 @@ state 130:  items:    Exp -> 'SCAN' 'LPAR' FunArg 'COMMA' Exp 'COMMA' . Exp 'RPA
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -7211,10 +7211,10 @@ state 131:  items:    Exp -> 'SCAN' 'LPAR' FunArg 'COMMA' Exp 'COMMA' Exp 'RPAR'
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -7371,10 +7371,10 @@ state 133:  items:    Exps -> Exp 'COMMA' Exps .
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -7529,10 +7529,10 @@ state 137:  items:    LetExp -> 'ID' 'EQ' Exp 'SEMICOLON' LetExp .
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -7848,10 +7848,10 @@ state 143:  items:    FunArg -> 'FN' Type 'LPAR' 'RPAR' . 'ARROW' Exp
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
@@ -8005,10 +8005,10 @@ state 145:  items:    FunArg -> 'FN' Type 'LPAR' Params . 'RPAR' 'ARROW' Exp
     action 'DIVIDE' (noprec):   error
     action 'AND' (noprec):   error
     action 'OR' (noprec):   error
-    action 'NEG' (explicit left 9999):   shift 115
+    action 'NEG' (explicit nonassoc 9999):   shift 115
     action 'TRUE' (noprec):   error
     action 'FALSE' (noprec):   error
-    action 'NOT' (explicit left 9995):   shift 114
+    action 'NOT' (explicit nonassoc 9995):   shift 114
     action 'LPAR' (noprec):   shift 104
     action 'RPAR' (noprec):   error
     action 'LBRACKET' (noprec):   error
