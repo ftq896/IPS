@@ -306,7 +306,7 @@ let rec evalExp (e : UntypedExp, vtab : VarTable, ftab : FunTable) : Value =
          under predicate `p`, i.e., `p(a) = true`;
        - create an `ArrayVal` from the (list) result of the previous step.
   *)
-  | Filter (farg, a_exp, _, pos) ->
+  | Filter (farg, a_exp, tp, pos) ->
         let farg_ret_type = rtpFunArg farg ftab pos
         match farg_ret_type with
         | Bool -> 
@@ -320,7 +320,7 @@ let rec evalExp (e : UntypedExp, vtab : VarTable, ftab : FunTable) : Value =
               | _ -> raise (MyError("Bad return type of 1st argument of filter, must be " 
                             + ppType Bool + " but got: " + ppType farg_ret_type, pos))
                             ) a
-            ArrayVal (res, Bool)
+            ArrayVal (res, tp)
           | _ -> reportNonArray "2nd argument of \"filter\"" arr (expPos a_exp) 
         | _ -> raise (MyError("Bad return type of 1st argument of filter, must be " 
                       + ppType Bool + " but got: " + ppType farg_ret_type, pos))
